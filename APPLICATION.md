@@ -100,7 +100,7 @@ Fold sits between those startups and S3/GCS/R2: data is compressed and deduplica
 
 I co-founded Fold with Siyang Chen, Staff Engineer at Everpure and tech lead on deduplication for FlashArray (10 GB → ~1 GB losslessly). The idea started when I was in Silicon Valley last summer, watching the AI wave accelerate — and realising how fast storage needs were outpacing what startups could afford.
 
-By day I'm a Staff Product Manager at Ledger — the Paris-founded hardware wallet startup — where I ship API integrations that connect DeFi apps directly to Ledger hardware wallets, so users can complete transactions securely. That taught me how to take complex infra and make it a simple integration for developers. Fold is the same playbook, applied to AI storage.
+By day I'm a Staff Product Manager at Ledger — the Paris-founded hardware wallet startup — where I ship API integrations that connect Ledger hardware wallets directly to DeFi apps, so that users can complete transactions securely. That taught me how to take complex infra and make it a simple integration for developers. Fold is the same playbook, applied to AI storage.
 
 Siyang and I still have our day jobs, but we're building Fold seriously — private beta pilots are live with design partners on RAG, observability, and ML workloads (early results: 3–8× vs gzip). We're focused on seed to Series A teams where S3 is already a real line item.
 
