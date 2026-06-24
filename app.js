@@ -164,6 +164,47 @@ function updateSummary() {
 }
 
 const contactEmail = (window.FOLD_CONTACT && window.FOLD_CONTACT.email) || 'imogendhy@gmail.com';
+const formEndpoint =
+  (window.FOLD_CONTACT && window.FOLD_CONTACT.formEndpoint) ||
+  `https://formsubmit.co/ajax/${contactEmail}`;
+
+const THANK_YOU = "Thank you! We'll be in touch shortly.";
+const SUBMIT_ERROR = `Something went wrong. Please email ${contactEmail} directly.`;
+
+async function submitForm(payload, submitButton) {
+  const originalLabel = submitButton ? submitButton.textContent : '';
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending…';
+  }
+
+  try {
+    const response = await fetch(formEndpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        _captcha: 'false',
+        _template: 'table',
+        ...payload,
+      }),
+    });
+
+    if (!response.ok) throw new Error('Form submit failed');
+    const data = await response.json();
+    if (data.success !== 'true' && data.success !== true) throw new Error('Form submit failed');
+    return true;
+  } catch {
+    return false;
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.textContent = originalLabel;
+    }
+  }
+}
 
 const CONTACT_INTENTS = {
   growth: {
@@ -280,7 +321,7 @@ document.querySelectorAll('a[href="#waitlist"]:not([data-waitlist-plan])').forEa
   el.addEventListener('click', () => setWaitlistPlan('default'));
 });
 
-document.getElementById('contact-form').addEventListener('submit', (e) => {
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   if (!currentContactIntent) return;
 
@@ -288,13 +329,22 @@ document.getElementById('contact-form').addEventListener('submit', (e) => {
   const company = document.getElementById('contact-company').value.trim();
   const message = document.getElementById('contact-message').value.trim();
   const note = document.getElementById('contact-note');
-  const subject = encodeURIComponent(currentContactIntent.subject);
-  const body = encodeURIComponent(
-    `${currentContactIntent.bodyIntro}\n\nEmail: ${email}\nCompany: ${company || '—'}\n\n${message || '(No additional details provided)'}\n`
+  const submit = document.getElementById('contact-submit');
+
+  const ok = await submitForm(
+    {
+      _subject: currentContactIntent.subject,
+      _replyto: email,
+      email,
+      company: company || '—',
+      message: message || '(No additional details provided)',
+      request: currentContactIntent.bodyIntro,
+    },
+    submit
   );
 
-  window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-  note.textContent = "Thank you! We'll be in touch shortly.";
+  note.textContent = ok ? THANK_YOU : SUBMIT_ERROR;
+  if (ok) document.getElementById('contact-form').reset();
 });
 
 document.getElementById('contact-modal-close').addEventListener('click', closeContactModal);
@@ -325,16 +375,24 @@ function handleRouteIntent() {
 window.addEventListener('hashchange', handleRouteIntent);
 handleRouteIntent();
 
-document.getElementById('waitlist-form').addEventListener('submit', (e) => {
+document.getElementById('waitlist-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const email = document.getElementById('email-input').value.trim();
   const note = document.getElementById('waitlist-note');
-  const subject = encodeURIComponent(currentWaitlistIntent.subject);
-  const body = encodeURIComponent(
-    `Hi Fold team,\n\n${currentWaitlistIntent.bodyIntro}\n\nEmail: ${email}\n`
+  const submit = document.getElementById('waitlist-submit');
+
+  const ok = await submitForm(
+    {
+      _subject: currentWaitlistIntent.subject,
+      _replyto: email,
+      email,
+      request: currentWaitlistIntent.bodyIntro,
+    },
+    submit
   );
-  window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-  note.textContent = "Thank you! We'll be in touch shortly.";
+
+  note.textContent = ok ? THANK_YOU : SUBMIT_ERROR;
+  if (ok) document.getElementById('waitlist-form').reset();
 });
 
 const menuToggle = document.getElementById('menu-toggle');

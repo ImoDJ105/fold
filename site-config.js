@@ -12,6 +12,9 @@ window.FOLD_METRICS = {
 };
 
 // Inbound contact email for pilot applications, sales, and waitlist.
+// FormSubmit delivers submissions directly to this inbox (no mail app for visitors).
+// On first live submission, FormSubmit emails you an activation link — click it once.
 window.FOLD_CONTACT = {
   email: 'imogendhy@gmail.com',
+  formEndpoint: 'https://formsubmit.co/ajax/imogendhy@gmail.com',
 };
