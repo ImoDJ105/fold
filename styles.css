@@ -762,6 +762,12 @@ body {
   border-radius: 4px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.pricing-badge-muted {
+  background: var(--border-light);
+  color: var(--text-muted);
 }
 
 .pricing-card h3 {
