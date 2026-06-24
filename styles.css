@@ -780,13 +780,21 @@ body {
   font-weight: 600;
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
+  text-align: left;
+}
+
+.section-label {
+  text-align: left;
 }
 
 .section-desc {
   color: var(--text-muted);
   font-size: 1.05rem;
-  max-width: 600px;
+  max-width: 640px;
   margin-bottom: 2.5rem;
+  margin-left: 0;
+  margin-right: auto;
+  text-align: left;
 }
 
 /* Cards */

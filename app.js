@@ -46,18 +46,19 @@ function initROICalculator() {
 
   const ratio = (window.FOLD_METRICS && window.FOLD_METRICS.avgCompressionRatio) || 8;
   const s3PerTB = 23;
+  const platformFee = 299;
 
   function update() {
     const tb = parseInt(slider.value, 10);
-    const current = tb * s3PerTB;
-    const compressed = current / ratio;
-    const foldFee = 299 + compressed * 0.006 * 1024;
-    const savings = current - foldFee;
+    const storageCost = tb * s3PerTB;
+    const foldedStorage = storageCost / ratio;
+    const foldTotal = foldedStorage + platformFee;
+    const savings = Math.max(0, storageCost - foldTotal);
 
     storageTb.textContent = tb;
-    currentCost.textContent = `$${formatNumber(current)}/mo`;
-    foldCost.textContent = `$${formatNumber(Math.round(foldFee))}/mo`;
-    savingsCost.textContent = `$${formatNumber(Math.round(savings))}/mo`;
+    currentCost.textContent = `$${formatNumber(storageCost)}/mo`;
+    foldCost.textContent = `$${formatNumber(Math.round(foldTotal))}/mo`;
+    savingsCost.textContent = `+$${formatNumber(Math.round(savings))}/mo`;
   }
 
   slider.addEventListener('input', update);
