@@ -1,61 +1,187 @@
-# YC Startup School Paris — Application Copy
+# YC Startup School Paris — Submit Tonight
 
-Use this tonight when submitting at https://events.ycombinator.com/yc-paris-sus
-
----
-
-## Are you working on a startup? If yes, tell us about it.
-
-**Fold** is a dedup API for AI object storage. AI companies are piling embeddings, RAG corpora, observability traces, and training checkpoints onto S3 — and storage costs are becoming a margin killer. Enterprise vendors like Everpure solve this for Fortune 500 data centers, but AI startups on cloud object storage only get gzip.
-
-Fold sits as a transparent layer between your application and S3/GCS/R2: data is compressed and deduplicated losslessly before upload, decompressed on read. No migration, no new storage vendor. Our co-founder Siyang Chen is a Staff Software Engineer at Everpure who led deduplication engineering for FlashArray (10 GB → ~1 GB); I'm Imogen Deng, a PM at Ledger who shipped API integrations connecting hardware wallet auth to DeFi apps.
-
-We're starting with teams that retain AI data on their own infrastructure — observability stacks, RAG pipelines, ML checkpoints — where storage is already a real line item.
-
-**Website:** https://fold-sooty.vercel.app/
-**GitHub:** https://github.com/ImoDJ105/fold
+**Form:** https://events.ycombinator.com/yc-paris-sus  
+**Event:** Monday, June 29 · Station F, Paris  
+**Time budget:** ~15 minutes if you copy-paste below
 
 ---
 
-## What are the most interesting things you've built in your spare time? Include URLs if possible.
+## Submit order (do this in sequence)
 
-Fold — a dedup API for AI object storage. Built the landing page, live compression demo, and SDK preview this week.
+1. Open the form while logged in as Imogen Deng
+2. Click **IMPORT FROM LINKEDIN** → review/fix work history
+3. Add **Education** (LSE — see below)
+4. Paste URLs (website, GitHub)
+5. Paste **most interesting things built** (required)
+6. Paste **startup answer** (optional but do it)
+7. Fill Age, Gender, City, Date of Birth
+8. Click **REQUEST A SPOT**
 
-- Live demo: https://fold-sooty.vercel.app/
+---
+
+## Profile fields (fill manually)
+
+| Field | Value |
+|-------|-------|
+| Name | Imogen Deng |
+| Email | dhyes11@gmail.com |
+| City | Paris |
+| LinkedIn | https://www.linkedin.com/in/haoyedeng/ |
+| Personal website | https://fold-sooty.vercel.app/ |
+| GitHub | https://github.com/ImoDJ105/fold |
+| Twitter | *(leave blank unless you use it)* |
+
+### Education (required — add via form)
+
+Add your LSE entry. Example format (edit year/degree to match your transcript):
+
+> **London School of Economics and Political Science (LSE)**  
+> [Your degree, e.g. BSc Management] · [Year]
+
+### Age / Date of birth
+
+Fill accurately — required fields.
+
+### Accomplishments (optional)
+
+**Competitions / awards / papers — paste this:**
+
+```
+Winner, Ledger company-wide hackathon — "Ledger Find": a Find-My-iPhone-style feature for hardware wallets, using Bluetooth to locate your device via the public keys it broadcasts.
+
+Overall winner, Cowes Week sailing regatta (2022, 2025).
+
+No published papers.
+```
+
+**Shorter (if tight on space):**
+
+```
+Ledger company-wide hackathon winner — "Ledger Find" (Bluetooth device locator for hardware wallets). Cowes Week sailing regatta overall winner, 2022 & 2025.
+```
+
+**Note:** Ledger DeFi direct connectivity (1inch, Velora, Clear Signing) is **shipped product work**, not a competition — keep it in Question 1 or LinkedIn, not this field.
+
+---
+
+## COPY-PASTE: Most interesting things you've built * (required)
+
+**Recommended (polished):**
+
+```
+Fold — a dedup API for AI object storage. I co-founded it with Siyang Chen, Staff Engineer at Everpure and tech lead on deduplication for FlashArray (10 GB → ~1 GB losslessly at Pure Storage).
+
+I own product and GTM: live site, compression demo, waitlist, and pilot outreach. We're in private beta with design partners running production pilots on RAG, observability, and ML workloads — early results show 3–8× compression on AI data shapes vs gzip.
+
+- Live site + demo: https://fold-sooty.vercel.app/
 - Source: https://github.com/ImoDJ105/fold
+```
 
-At Ledger (day job), I shipped API integrations that connect Ledger hardware wallet sign-in directly to decentralized apps like 1inch and Velora — enabling secure crypto transactions without leaving the dApp.
+**Shorter (if character limit is tight):**
+
+```
+Fold — dedup API for AI object storage, co-founded with Siyang Chen (dedup lead at Everpure / ex-Pure Storage). I built the live site, compression demo, and pilot pipeline. Private beta with design partners on RAG, observability, and ML workloads — 3–8× vs gzip on AI data shapes.
+
+https://fold-sooty.vercel.app/ · https://github.com/ImoDJ105/fold
+```
 
 ---
 
-## Personal website
+## COPY-PASTE: Are you working on a startup? (fill this — it's your pitch)
+
+**Your version (recommended — human tone + Fold + Ledger):**
+
+```
+Well yes... and that's Fold ;)
+
+The problem we're solving: AI companies are storing embeddings, RAG corpora, observability traces, and training checkpoints on S3 — and storage costs are becoming a real margin problem. Enterprise vendors solve this for Fortune 500 data centers, but AI startups on cloud object storage mostly get gzip, which doesn't understand AI data shapes.
+
+Fold sits between those startups and S3/GCS/R2: data is compressed and deduplicated losslessly before upload, then decompressed on read. No migration, no new storage vendor — just one API call in your existing upload path.
+
+I co-founded Fold with Siyang Chen, Staff Engineer at Everpure and tech lead on deduplication for FlashArray (10 GB → ~1 GB losslessly). The idea started when I was in Silicon Valley last summer, watching the AI wave accelerate — and realising how fast storage needs were outpacing what startups could afford.
+
+By day I'm a Staff Product Manager at Ledger — the Paris-founded hardware wallet startup — where I ship API integrations that connect DeFi apps directly to Ledger hardware wallets, so users get secure, convenient on-chain transactions without relying on software wallets like MetaMask or Rabby. That taught me how to take complex infra and make it a simple integration for developers. Fold is the same playbook, applied to AI storage.
+
+Siyang and I still have our day jobs, but we're building Fold seriously — private beta pilots are live with design partners on RAG, observability, and ML workloads (early results: 3–8× vs gzip). We're focused on seed to Series A teams where S3 is already a real line item.
 
 https://fold-sooty.vercel.app/
+```
+
+**Why Ledger goes here (not as the main answer):** YC reads this question as "what startup are *you* building?" — so Fold must lead. One paragraph on Ledger works as **founder credibility** (Paris startup, API integrations, DeFi) without making it sound like you're applying on behalf of Ledger.
+
+**If Siyang prefers not to name Everpure** — swap the co-founder line for:
+
+```
+I co-founded Fold with Siyang Chen, who led deduplication engineering for FlashArray at Pure Storage (10 GB → ~1 GB losslessly).
+```
+
+**If you want a more formal tone** (no opener / no origin story):
+
+```
+Fold is a dedup API for AI object storage.
+
+AI companies are storing embeddings, RAG corpora, observability traces, and training checkpoints on S3 — and storage costs are becoming a real margin problem. Enterprise vendors solve this for Fortune 500 data centers, but AI startups on cloud object storage mostly get gzip.
+
+Fold sits between your app and S3/GCS/R2: data is compressed and deduplicated losslessly before upload, then decompressed on read. No migration, no new storage vendor — one API call in your existing upload path.
+
+I co-founded Fold with Siyang Chen (FlashArray dedup, Everpure). I own product and GTM. We're in private beta with design partners on RAG, observability, and ML workloads — early results show 3–8× compression vs gzip.
+
+https://fold-sooty.vercel.app/
+```
 
 ---
 
-## Suggested one-liner (for future YC app)
+## What YC is looking for (reminder)
+
+From the [event page](https://events.ycombinator.com/yc-paris-sus):
+
+- Space is **limited and hand-picked**
+- You **don't need** a startup already — but having one **helps you stand out**
+- Speakers include founders of **Datadog, Supabase, PostHog** — infra/devtools angle fits
+
+Your strongest signals:
+1. **Live URL** with demo ✓
+2. **GitHub** with real code ✓
+3. **Technical co-founder** with enterprise dedup pedigree ✓
+4. **You ship** (Ledger API integrations + Fold product/GTM) ✓
+
+---
+
+## One-liner (if asked elsewhere)
 
 **Fold — dedup API that cuts S3 costs for AI companies**
 
-(45 characters)
+---
+
+## Co-founder reference (not on this form — for your notes)
+
+**Siyang Chen** — Staff SWE at Everpure. Tech lead on deduplication for FlashArray. 7+ years at Everpure/Pure Storage. Duke CS.  
+LinkedIn: https://www.linkedin.com/in/siyang-chen/
 
 ---
 
-## Accomplishments (suggested for co-founder)
+## Competitive positioning (internal — don't paste into form)
 
-Siyang Chen — Staff Software Engineer at Everpure. Tech lead on deduplication for FlashArray, one of the industry's most advanced enterprise data reduction systems. 7+ years at Everpure, Duke CS.
+If a YC partner asks "who else does this?":
+
+> Enterprise compression filesystems sell 90-day evals to storage teams. Fold is a dedup API for AI startups already on S3 — one integration, built by the team that shipped dedup at Pure Storage.
 
 ---
 
-## Before you submit — checklist
+## Final checklist
 
-- [x] Deploy site — https://fold-sooty.vercel.app/
-- [x] Push code to public GitHub repo — https://github.com/ImoDJ105/fold
-- [ ] **Update `site-config.js`** with real traction numbers (MRR, waitlist, pilots) — only use figures you can defend if asked
-- [ ] Replace design partner cards with real pilot details once Siyang's demo is live
-- [ ] Replace `[YOUR-DEPLOYED-URL]` in this doc — done
-- [ ] Fill LinkedIn (import from LinkedIn button on form)
-- [ ] Add education history
-- [ ] City: **Paris** (you're a Paris resident — use this)
-- [ ] Add Siyang's LinkedIn: https://www.linkedin.com/in/siyang-chen/
+- [ ] LinkedIn imported and reviewed
+- [ ] Education added (LSE)
+- [ ] City = Paris
+- [ ] Personal website = https://fold-sooty.vercel.app/
+- [ ] GitHub = https://github.com/ImoDJ105/fold
+- [ ] "Most interesting things built" pasted
+- [ ] Startup answer pasted (numbers confirmed with Siyang OR soft version)
+- [ ] Age + date of birth filled
+- [ ] **REQUEST A SPOT** clicked
+
+---
+
+## After you submit
+
+Nothing else required tonight. If selected, they'll email you with details for June 29 at Station F.
