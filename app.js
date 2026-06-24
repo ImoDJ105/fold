@@ -294,7 +294,7 @@ document.getElementById('contact-form').addEventListener('submit', (e) => {
   );
 
   window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-  note.textContent = `Opening your email client… If nothing opens, email ${contactEmail}`;
+  note.textContent = "Thank you! We'll be in touch shortly.";
 });
 
 document.getElementById('contact-modal-close').addEventListener('click', closeContactModal);
@@ -334,7 +334,7 @@ document.getElementById('waitlist-form').addEventListener('submit', (e) => {
     `Hi Fold team,\n\n${currentWaitlistIntent.bodyIntro}\n\nEmail: ${email}\n`
   );
   window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
-  note.textContent = `Opening your email client… If nothing opens, email ${contactEmail}`;
+  note.textContent = "Thank you! We'll be in touch shortly.";
 });
 
 const menuToggle = document.getElementById('menu-toggle');
