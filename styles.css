@@ -997,6 +997,17 @@ body {
 /* Founders */
 .founder-card { text-align: center; }
 
+.founder-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 4px;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid var(--border-light);
+  margin: 0 auto 1rem;
+  display: block;
+}
+
 .founder-avatar {
   width: 64px;
   height: 64px;

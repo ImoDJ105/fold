@@ -8,7 +8,7 @@ Use this tonight when submitting at https://events.ycombinator.com/yc-paris-sus
 
 **Fold** is a dedup API for AI object storage. AI companies are piling embeddings, RAG corpora, observability traces, and training checkpoints onto S3 — and storage costs are becoming a margin killer. Enterprise vendors like Everpure solve this for Fortune 500 data centers, but AI startups on cloud object storage only get gzip.
 
-Fold sits as a transparent layer between your application and S3/GCS/R2: data is compressed and deduplicated losslessly before upload, decompressed on read. No migration, no new storage vendor. Our co-founder Siyang Chen is a Staff Software Engineer at Everpure who led deduplication engineering for FlashArray (10 GB → ~1 GB); I'm a PM at Ledger who shipped API integrations connecting hardware wallet auth to DeFi apps.
+Fold sits as a transparent layer between your application and S3/GCS/R2: data is compressed and deduplicated losslessly before upload, decompressed on read. No migration, no new storage vendor. Our co-founder Siyang Chen is a Staff Software Engineer at Everpure who led deduplication engineering for FlashArray (10 GB → ~1 GB); I'm Haoye Deng, a PM at Ledger who shipped API integrations connecting hardware wallet auth to DeFi apps.
 
 We're starting with teams that retain AI data on their own infrastructure — observability stacks, RAG pipelines, ML checkpoints — where storage is already a real line item.
 
