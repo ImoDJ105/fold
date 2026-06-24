@@ -772,6 +772,7 @@ body {
   letter-spacing: 0.12em;
   color: var(--accent);
   margin-bottom: 0.75rem;
+  text-align: left;
 }
 
 .section h2 {
@@ -780,10 +781,6 @@ body {
   font-weight: 600;
   letter-spacing: -0.02em;
   margin-bottom: 1rem;
-  text-align: left;
-}
-
-.section-label {
   text-align: left;
 }
 
