@@ -22,7 +22,7 @@
   <div class="announcement-bar">
     <span class="pulse-dot"></span>
     Private beta live — <strong id="slots-remaining">2</strong> design partner slots left for Q3
-    <a href="#waitlist">Apply now →</a>
+    <a href="#" data-contact="pilot">Apply now →</a>
   </div>
 
   <header class="header">
@@ -384,7 +384,7 @@
             <li>Custom compression profiling</li>
             <li>Slack support channel</li>
           </ul>
-          <a href="#waitlist" class="btn btn-ghost btn-block">Apply for pilot</a>
+          <button type="button" class="btn btn-ghost btn-block" data-contact="pilot">Apply for pilot</button>
         </article>
         <article class="card pricing-card featured">
           <div class="pricing-badge">Most popular</div>
@@ -397,7 +397,7 @@
             <li>Usage dashboard & analytics</li>
             <li>99.9% uptime SLA</li>
           </ul>
-          <a href="#waitlist" class="btn btn-primary btn-block">Get started</a>
+          <a href="#waitlist" class="btn btn-primary btn-block" data-waitlist-plan="growth">Get started</a>
         </article>
         <article class="card pricing-card">
           <h3>Enterprise</h3>
@@ -409,7 +409,7 @@
             <li>SOC 2 compliance support</li>
             <li>Annual contracts</li>
           </ul>
-          <a href="#waitlist" class="btn btn-ghost btn-block">Contact sales</a>
+          <button type="button" class="btn btn-ghost btn-block" data-contact="enterprise">Contact sales</button>
         </article>
       </div>
       </div>
@@ -439,11 +439,11 @@
     <section id="waitlist" class="section waitlist-section section-alt">
       <div class="section-inner">
       <div class="waitlist-box">
-        <h2>Join <span id="waitlist-count">37</span>+ teams on the waitlist</h2>
-        <p>We're accepting <strong id="waitlist-slots">2</strong> more design partners for Q3. Running observability on your own infra? Building RAG pipelines? Let's talk.</p>
+        <h2 id="waitlist-title">Join <span id="waitlist-count">37</span>+ teams on the waitlist</h2>
+        <p id="waitlist-desc">We're accepting <strong id="waitlist-slots">2</strong> more design partners for Q3. Running observability on your own infra? Building RAG pipelines? Let's talk.</p>
         <form class="waitlist-form" id="waitlist-form">
           <input type="email" placeholder="you@company.com" required id="email-input" />
-          <button type="submit" class="btn btn-primary">Request early access</button>
+          <button type="submit" class="btn btn-primary" id="waitlist-submit">Request early access</button>
         </form>
         <p class="waitlist-note" id="waitlist-note"></p>
       </div>
@@ -457,6 +457,21 @@
       <span>© 2026 Fold Storage, Inc.</span>
     </div>
   </footer>
+
+  <div class="modal-overlay hidden" id="contact-modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button type="button" class="modal-close" id="contact-modal-close" aria-label="Close">×</button>
+      <h2 id="contact-modal-title">Contact us</h2>
+      <p class="modal-desc" id="contact-modal-desc"></p>
+      <form class="contact-form" id="contact-form">
+        <input type="email" id="contact-email" placeholder="you@company.com" required />
+        <input type="text" id="contact-company" placeholder="Company name" />
+        <textarea id="contact-message" rows="4" placeholder="Tell us about your use case…"></textarea>
+        <button type="submit" class="btn btn-primary btn-block" id="contact-submit">Send</button>
+      </form>
+      <p class="modal-note" id="contact-note"></p>
+    </div>
+  </div>
 
   <script src="site-config.js"></script>
   <script src="app.js"></script>

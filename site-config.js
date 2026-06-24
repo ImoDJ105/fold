@@ -10,3 +10,8 @@ window.FOLD_METRICS = {
   pilotSlotsRemaining: 2,
   avgCompressionRatio: 8.2,
 };
+
+// Inbound contact email for pilot applications, sales, and waitlist.
+window.FOLD_CONTACT = {
+  email: 'dhyes11@gmail.com',
+};
