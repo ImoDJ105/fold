@@ -19,7 +19,12 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 8.5rem;
+}
+
+[id] { scroll-margin-top: 8.5rem; }
 
 body {
   font-family: var(--font);
@@ -142,6 +147,75 @@ body {
 }
 
 .nav a:hover { color: var(--text); }
+
+/* Mobile menu */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text);
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.menu-toggle.open span:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.menu-toggle.open span:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+.nav-mobile {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 1.25rem 1.25rem;
+}
+
+.nav-mobile a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-mobile a:last-of-type { border-bottom: none; }
+
+.nav-mobile .btn {
+  margin-top: 1rem;
+}
+
+.nav-mobile.open { display: flex; }
+
+.founder-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.founder-link:hover { text-decoration: underline; }
 
 /* Buttons */
 .btn {
@@ -1023,13 +1097,15 @@ body {
 .footer a:hover { color: var(--accent); }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav { display: none; }
+  .btn-header-cta { display: none; }
+  .menu-toggle { display: flex; }
   .header-inner { padding: 1.1rem 1.25rem; min-height: 64px; }
-  .btn-header-cta { padding: 0.7rem 1.1rem; font-size: 0.9rem; }
   .hero { padding-top: 10rem; padding-left: 1.25rem; padding-right: 1.25rem; }
   .flow-arrow { display: none; }
   .stat-divider { display: none; }
   .roi-arrow { display: none; }
   .announcement-bar { font-size: 0.8rem; padding: 0.55rem 0.75rem; }
+  .footer-inner { flex-direction: column; text-align: center; }
 }

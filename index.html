@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fold — Dedup API for AI object storage</title>
   <meta name="description" content="Fold is a dedup and compression API for AI object storage. Cut S3 costs for embeddings, traces, and RAG data — without changing your storage vendor." />
+  <meta property="og:title" content="Fold — Dedup API for AI object storage" />
+  <meta property="og:description" content="Compress and deduplicate AI data before it hits S3. In private beta with design partners." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fold-sooty.vercel.app/" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -25,7 +31,10 @@
         <span class="logo-mark">F</span>
         <span>Fold</span>
       </a>
-      <nav class="nav">
+      <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+      <nav class="nav" id="nav">
         <a href="#traction">Traction</a>
         <a href="#product">Product</a>
         <a href="#demo">Demo</a>
@@ -34,6 +43,14 @@
       </nav>
       <a href="#waitlist" class="btn btn-header-cta">Request access</a>
     </div>
+    <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
+      <a href="#traction">Traction</a>
+      <a href="#product">Product</a>
+      <a href="#demo">Demo</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#founders">Team</a>
+      <a href="#waitlist" class="btn btn-primary btn-block">Request access</a>
+    </nav>
   </header>
 
   <main>
@@ -373,6 +390,7 @@
           <h3>Siyang Chen</h3>
           <p class="founder-role">Co-founder · Engineering</p>
           <p>Staff Software Engineer at Everpure. Tech lead on deduplication for FlashArray — enterprise-grade data reduction that shrinks 10 GB to ~1 GB losslessly. Duke CS.</p>
+          <a href="https://www.linkedin.com/in/siyang-chen/" class="founder-link" target="_blank" rel="noopener">LinkedIn →</a>
         </article>
       </div>
     </section>
@@ -394,7 +412,8 @@
     <div class="footer-inner">
       <span class="logo-footer">Fold</span>
       <span>© 2026 Fold Storage, Inc.</span>
-      <a href="mailto:hello@foldstorage.dev">hello@foldstorage.dev</a>
+      <a href="https://github.com/ImoDJ105/fold" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:dhyes11@gmail.com">dhyes11@gmail.com</a>
     </div>
   </footer>
 

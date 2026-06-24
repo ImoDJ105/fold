@@ -164,11 +164,32 @@ function updateSummary() {
 
 document.getElementById('waitlist-form').addEventListener('submit', (e) => {
   e.preventDefault();
-  const email = document.getElementById('email-input').value;
+  const email = document.getElementById('email-input').value.trim();
   const note = document.getElementById('waitlist-note');
-  note.textContent = `Thanks! We'll reach out at ${email} shortly.`;
-  e.target.reset();
+  const subject = encodeURIComponent('Fold — early access request');
+  const body = encodeURIComponent(`Hi Fold team,\n\nI'd like to request early access.\n\nEmail: ${email}\n`);
+  window.location.href = `mailto:dhyes11@gmail.com?subject=${subject}&body=${body}`;
+  note.textContent = 'Opening your email client… If nothing opens, email us at dhyes11@gmail.com';
 });
+
+const menuToggle = document.getElementById('menu-toggle');
+const navMobile = document.getElementById('nav-mobile');
+
+if (menuToggle && navMobile) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = navMobile.classList.toggle('open');
+    menuToggle.classList.toggle('open', isOpen);
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  navMobile.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navMobile.classList.remove('open');
+      menuToggle.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
 
 initMetrics();
 initROICalculator();
