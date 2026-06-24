@@ -12,8 +12,8 @@ Fold sits as a transparent layer between your application and S3/GCS/R2: data is
 
 We're starting with teams that retain AI data on their own infrastructure — observability stacks, RAG pipelines, ML checkpoints — where storage is already a real line item.
 
-**Website:** https://[YOUR-DEPLOYED-URL]
-**GitHub:** https://github.com/[YOUR-USERNAME]/fold
+**Website:** https://fold-sooty.vercel.app/
+**GitHub:** https://github.com/ImoDJ105/fold
 
 ---
 
@@ -21,8 +21,8 @@ We're starting with teams that retain AI data on their own infrastructure — ob
 
 Fold — a dedup API for AI object storage. Built the landing page, live compression demo, and SDK preview this week.
 
-- Live demo: https://[YOUR-DEPLOYED-URL]
-- Source: https://github.com/[YOUR-USERNAME]/fold
+- Live demo: https://fold-sooty.vercel.app/
+- Source: https://github.com/ImoDJ105/fold
 
 At Ledger (day job), I shipped API integrations that connect Ledger hardware wallet sign-in directly to decentralized apps like 1inch and Velora — enabling secure crypto transactions without leaving the dApp.
 
@@ -30,7 +30,7 @@ At Ledger (day job), I shipped API integrations that connect Ledger hardware wal
 
 ## Personal website
 
-https://[YOUR-DEPLOYED-URL]
+https://fold-sooty.vercel.app/
 
 ---
 
@@ -50,11 +50,11 @@ Siyang Chen — Staff Software Engineer at Everpure. Tech lead on deduplication 
 
 ## Before you submit — checklist
 
-- [ ] Deploy site (Vercel, Netlify, or GitHub Pages)
-- [ ] Push code to public GitHub repo
+- [x] Deploy site — https://fold-sooty.vercel.app/
+- [x] Push code to public GitHub repo — https://github.com/ImoDJ105/fold
 - [ ] **Update `site-config.js`** with real traction numbers (MRR, waitlist, pilots) — only use figures you can defend if asked
 - [ ] Replace design partner cards with real pilot details once Siyang's demo is live
-- [ ] Replace `[YOUR-DEPLOYED-URL]` in this doc
+- [ ] Replace `[YOUR-DEPLOYED-URL]` in this doc — done
 - [ ] Fill LinkedIn (import from LinkedIn button on form)
 - [ ] Add education history
 - [ ] City: **Paris** (you're a Paris resident — use this)
