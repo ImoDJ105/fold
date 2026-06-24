@@ -13,5 +13,5 @@ window.FOLD_METRICS = {
 
 // Inbound contact email for pilot applications, sales, and waitlist.
 window.FOLD_CONTACT = {
-  email: 'dhyes11@gmail.com',
+  email: 'imogendhy@gmail.com',
 };

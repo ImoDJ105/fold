@@ -163,16 +163,16 @@ function updateSummary() {
   `;
 }
 
-const contactEmail = (window.FOLD_CONTACT && window.FOLD_CONTACT.email) || 'dhyes11@gmail.com';
+const contactEmail = (window.FOLD_CONTACT && window.FOLD_CONTACT.email) || 'imogendhy@gmail.com';
 
 const CONTACT_INTENTS = {
-  pilot: {
-    title: 'Apply for pilot',
-    description: 'Tell us about your workload. We have limited design partner slots for Q3.',
-    subject: 'Fold — pilot application',
-    messagePlaceholder: 'What data are you storing? Rough size on S3? (RAG, traces, checkpoints…)',
-    submitLabel: 'Submit application',
-    bodyIntro: 'I would like to apply for the Fold pilot program.',
+  growth: {
+    title: 'Get started with Growth',
+    description: 'Ready to go live on the $299/mo plan? Tell us about your workload and we\'ll get you set up.',
+    subject: 'Fold — Growth plan inquiry',
+    messagePlaceholder: 'Company, data volume on S3, timeline to go live…',
+    submitLabel: 'Contact us',
+    bodyIntro: 'I would like to get started on the Growth plan.',
   },
   enterprise: {
     title: 'Contact sales',
@@ -190,13 +190,13 @@ const WAITLIST_INTENTS = {
     bodyIntro: 'I would like to request early access.',
     submitLabel: 'Request early access',
   },
-  growth: {
-    subject: 'Fold — Growth plan waitlist',
-    bodyIntro: 'I would like to join the waitlist for the Growth plan.',
-    submitLabel: 'Join waitlist',
-    title: 'Get started with Growth',
+  pilot: {
+    subject: 'Fold — pilot application',
+    bodyIntro: 'I would like to apply for the free pilot program.',
+    submitLabel: 'Apply for pilot',
+    title: 'Apply for the free pilot',
     description:
-      "We're in private beta. Join the waitlist and we'll reach out when your account is ready to go live.",
+      '30-day design partner program — up to 500 GB compressed, dedicated onboarding, and a Slack support channel.',
   },
 };
 
@@ -218,9 +218,9 @@ function setWaitlistPlan(plan) {
   const submitEl = document.getElementById('waitlist-submit');
   if (!titleEl || !descEl || !submitEl) return;
 
-  if (plan === 'growth') {
+  if (plan === 'pilot') {
     titleEl.textContent = currentWaitlistIntent.title;
-    descEl.textContent = currentWaitlistIntent.description;
+    descEl.innerHTML = `${currentWaitlistIntent.description} We're accepting <strong id="waitlist-slots">${getPilotSlots()}</strong> more design partners for Q3.`;
   } else {
     titleEl.innerHTML = `Join <span id="waitlist-count">${getWaitlistCount()}</span>+ teams on the waitlist`;
     descEl.innerHTML =
@@ -311,14 +311,14 @@ document.addEventListener('keydown', (e) => {
 
 function handleRouteIntent() {
   const hash = window.location.hash;
-  if (hash === '#contact-pilot') {
-    openContactModal('pilot');
+  if (hash === '#waitlist-pilot') {
+    setWaitlistPlan('pilot');
+  } else if (hash === '#contact-growth') {
+    openContactModal('growth');
     history.replaceState(null, '', '#pricing');
   } else if (hash === '#contact-enterprise') {
     openContactModal('enterprise');
     history.replaceState(null, '', '#pricing');
-  } else if (hash === '#waitlist-growth') {
-    setWaitlistPlan('growth');
   }
 }
 
