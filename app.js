@@ -72,6 +72,24 @@ async function compressFile(file) {
   return { original: buffer.byteLength, compressed: compressed.byteLength };
 }
 
+const DEMO_SAMPLES = {
+  'agent-traces': {
+    path: 'samples/sample-agent-traces.jsonl',
+    name: 'sample-agent-traces.jsonl',
+    label: 'Agent traces',
+  },
+  embeddings: {
+    path: 'samples/sample-embeddings.json',
+    name: 'sample-embeddings.json',
+    label: 'Embeddings export',
+  },
+  observability: {
+    path: 'samples/sample-observability-traces.jsonl',
+    name: 'sample-observability-traces.jsonl',
+    label: 'Observability logs',
+  },
+};
+
 const dropzone = document.getElementById('dropzone');
 const fileInput = document.getElementById('file-input');
 const demoResults = document.getElementById('demo-results');
@@ -80,6 +98,14 @@ const resultsSummary = document.getElementById('results-summary');
 const clearBtn = document.getElementById('clear-btn');
 
 let allResults = [];
+
+function clearDemoResults() {
+  allResults = [];
+  resultsBody.innerHTML = '';
+  resultsSummary.innerHTML = '';
+  demoResults.classList.add('hidden');
+  fileInput.value = '';
+}
 
 dropzone.addEventListener('click', () => fileInput.click());
 
@@ -98,44 +124,76 @@ dropzone.addEventListener('drop', (e) => {
 
 fileInput.addEventListener('change', (e) => handleFiles(e.target.files));
 
-clearBtn.addEventListener('click', () => {
-  allResults = [];
-  resultsBody.innerHTML = '';
-  resultsSummary.innerHTML = '';
-  demoResults.classList.add('hidden');
-  fileInput.value = '';
-});
+clearBtn.addEventListener('click', clearDemoResults);
+
+async function processFile(file) {
+  const row = document.createElement('tr');
+  row.innerHTML = `<td>${file.name}</td><td colspan="4" style="color: var(--text-muted)">Compressing…</td>`;
+  resultsBody.appendChild(row);
+
+  try {
+    const { original, compressed } = await compressFile(file);
+    const ratio = (original / compressed).toFixed(1);
+    const saved = ((1 - compressed / original) * 100).toFixed(0);
+
+    allResults.push({ original, compressed });
+
+    row.innerHTML = `
+      <td>${file.name}</td>
+      <td>${formatBytes(original)}</td>
+      <td>${formatBytes(compressed)}</td>
+      <td class="ratio-good">${ratio}×</td>
+      <td class="ratio-good">${saved}%</td>
+    `;
+  } catch {
+    row.innerHTML = `<td>${file.name}</td><td colspan="4" style="color: #ef4444">Compression failed</td>`;
+  }
+
+  updateSummary();
+}
 
 async function handleFiles(files) {
   if (!files.length) return;
   demoResults.classList.remove('hidden');
 
   for (const file of files) {
-    const row = document.createElement('tr');
-    row.innerHTML = `<td>${file.name}</td><td colspan="4" style="color: var(--text-muted)">Compressing…</td>`;
-    resultsBody.appendChild(row);
+    await processFile(file);
+  }
+}
 
-    try {
-      const { original, compressed } = await compressFile(file);
-      const ratio = (original / compressed).toFixed(1);
-      const saved = ((1 - compressed / original) * 100).toFixed(0);
-
-      allResults.push({ original, compressed });
-
-      row.innerHTML = `
-        <td>${file.name}</td>
-        <td>${formatBytes(original)}</td>
-        <td>${formatBytes(compressed)}</td>
-        <td class="ratio-good">${ratio}×</td>
-        <td class="ratio-good">${saved}%</td>
-      `;
-    } catch {
-      row.innerHTML = `<td>${file.name}</td><td colspan="4" style="color: #ef4444">Compression failed</td>`;
-    }
+async function loadSamples(sampleKeys, replace = true) {
+  if (replace) {
+    allResults = [];
+    resultsBody.innerHTML = '';
+    resultsSummary.innerHTML = '';
+    fileInput.value = '';
   }
 
-  updateSummary();
+  demoResults.classList.remove('hidden');
+
+  for (const key of sampleKeys) {
+    const sample = DEMO_SAMPLES[key];
+    if (!sample) continue;
+
+    try {
+      const response = await fetch(sample.path);
+      if (!response.ok) throw new Error('Sample not found');
+      const buffer = await response.arrayBuffer();
+      const file = new File([buffer], sample.name, { type: 'application/octet-stream' });
+      await processFile(file);
+    } catch {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td>${sample.name}</td><td colspan="4" style="color: #ef4444">Could not load sample</td>`;
+      resultsBody.appendChild(row);
+    }
+  }
 }
+
+document.querySelectorAll('[data-sample]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    loadSamples([btn.dataset.sample]);
+  });
+});
 
 function updateSummary() {
   const totalOriginal = allResults.reduce((s, r) => s + r.original, 0);

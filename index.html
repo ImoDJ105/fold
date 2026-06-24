@@ -304,7 +304,7 @@
     <section id="demo" class="section">
       <div class="section-label">Live demo</div>
       <h2>See compression in action</h2>
-      <p class="section-desc">Upload any file — production pilots use our server-side dedup pipeline. This preview runs client-side.</p>
+      <p class="section-desc">This preview uses browser gzip on sample AI workloads. Production pilots run Fold's server-side dedup pipeline — that's where the 8.2× average comes from.</p>
 
       <div class="demo-panel">
         <div class="dropzone" id="dropzone">
@@ -315,6 +315,15 @@
             </svg>
             <p><strong>Drop files here</strong> or click to browse</p>
             <span class="dropzone-hint">JSON, embeddings export, CSV, logs — typical AI workload files</span>
+          </div>
+        </div>
+
+        <div class="demo-samples">
+          <span class="demo-samples-label">Try sample AI workloads</span>
+          <div class="demo-sample-actions">
+            <button type="button" class="btn btn-ghost btn-sm" data-sample="agent-traces">Agent traces</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-sample="embeddings">Embeddings export</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-sample="observability">Observability logs</button>
           </div>
         </div>
 
