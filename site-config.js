@@ -1,5 +1,5 @@
-// Edit these numbers as your pilots and revenue grow.
-// Keep them truthful — YC may ask you to back them up.
+// Edit these numbers as your pilots grow. Keep them truthful — YC may ask you to back them up.
+// Note: contractedMRR and pilotPipelineARR are for pitch decks only — not shown on the website.
 window.FOLD_METRICS = {
   designPartners: 4,
   contractedMRR: 3200,

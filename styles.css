@@ -622,7 +622,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.25rem;
-  margin-top: 2.5rem;
+  margin: 2rem 0 2.5rem;
 }
 
 .testimonial {

@@ -35,7 +35,7 @@
         <span></span><span></span>
       </button>
       <nav class="nav" id="nav">
-        <a href="#traction">Traction</a>
+        <a href="#customer-results">Customer results</a>
         <a href="#product">Product</a>
         <a href="#demo">Demo</a>
         <a href="#pricing">Pricing</a>
@@ -44,7 +44,7 @@
       <a href="#waitlist" class="btn btn-header-cta">Request access</a>
     </div>
     <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
-      <a href="#traction">Traction</a>
+      <a href="#customer-results">Customer results</a>
       <a href="#product">Product</a>
       <a href="#demo">Demo</a>
       <a href="#pricing">Pricing</a>
@@ -64,7 +64,7 @@
       </p>
       <div class="hero-cta">
         <a href="#demo" class="btn btn-primary">Try the live demo</a>
-        <a href="#traction" class="btn btn-ghost">See customer results</a>
+        <a href="#customer-results" class="btn btn-ghost">See customer results</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
@@ -149,36 +149,47 @@
       </div>
     </section>
 
-    <section id="traction" class="section section-alt">
+    <section id="customer-results" class="section section-alt">
       <div class="section-inner">
-      <div class="section-label">Traction</div>
+      <div class="section-label">Customer results</div>
       <h2>Already saving teams real money on S3</h2>
       <p class="section-desc">Private beta, but already live — <span data-metric="designPartners" data-suffix=" teams">—</span> running Fold in production on their own object storage.</p>
 
+      <div class="testimonials">
+        <blockquote class="testimonial">
+          <p>"We were about to double our S3 budget. Fold paid for itself in the first week of the pilot."</p>
+          <footer>— VP Engineering, Series A RAG startup</footer>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p>"Finally — enterprise-grade dedup without buying a storage array. One API call in our upload path."</p>
+          <footer>— Head of Platform, AI observability company</footer>
+        </blockquote>
+      </div>
+
       <div class="metrics-grid">
         <article class="metric-card highlight-metric">
-          <span class="metric-label">Contracted MRR</span>
-          <span class="metric-number" data-metric="contractedMRR" data-prefix="$" data-decimals="0">—</span>
-          <span class="metric-sub">from pilot agreements</span>
-        </article>
-        <article class="metric-card">
-          <span class="metric-label">Pilot pipeline</span>
-          <span class="metric-number" data-metric="pilotPipelineARR" data-prefix="$" data-suffix=" ARR" data-decimals="0">—</span>
-          <span class="metric-sub">in active conversations</span>
-        </article>
-        <article class="metric-card">
           <span class="metric-label">Customer savings</span>
           <span class="metric-number" data-metric="customerSavingsMonthly" data-prefix="$" data-suffix="/mo" data-decimals="0">—</span>
-          <span class="metric-sub">storage costs cut across pilots</span>
+          <span class="metric-sub">storage costs cut across live pilots</span>
         </article>
         <article class="metric-card">
-          <span class="metric-label">Waitlist</span>
-          <span class="metric-number" data-metric="waitlistCount" data-suffix="+ teams">—</span>
-          <span class="metric-sub">requested early access</span>
+          <span class="metric-label">Avg compression</span>
+          <span class="metric-number" data-metric="avgCompressionRatio" data-suffix="×" data-decimals="1">—</span>
+          <span class="metric-sub">across production workloads</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Data optimized</span>
+          <span class="metric-number" data-metric="dataOptimizedTB" data-suffix=" TB" data-decimals="1">—</span>
+          <span class="metric-sub">compressed in active pilots</span>
+        </article>
+        <article class="metric-card">
+          <span class="metric-label">Teams in production</span>
+          <span class="metric-number" data-metric="designPartners" data-suffix="">—</span>
+          <span class="metric-sub">design partners live today</span>
         </article>
       </div>
 
-      <h3 class="subsection-title">Design partners in production</h3>
+      <h3 class="subsection-title">In production today</h3>
       <div class="cards two partner-cards">
         <article class="card partner-card">
           <div class="partner-header">
@@ -214,19 +225,8 @@
           </div>
           <h4>Agent dev infrastructure</h4>
           <p>RAG document corpus + evaluation datasets. Signed LOI for Q3 production rollout.</p>
-          <div class="partner-stat">$18k ARR committed</div>
+          <div class="partner-stat">LOI signed · Q3 production rollout</div>
         </article>
-      </div>
-
-      <div class="testimonials">
-        <blockquote class="testimonial">
-          <p>"We were about to double our S3 budget. Fold paid for itself in the first week of the pilot."</p>
-          <footer>— VP Engineering, Series A RAG startup</footer>
-        </blockquote>
-        <blockquote class="testimonial">
-          <p>"Finally — enterprise-grade dedup without buying a storage array. One API call in our upload path."</p>
-          <footer>— Head of Platform, AI observability company</footer>
-        </blockquote>
       </div>
       </div>
     </section>
