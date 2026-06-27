@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fold — Dedup API for AI object storage</title>
-  <meta name="description" content="Fold is a dedup and compression API for AI object storage. Cut S3 costs for embeddings, traces, and RAG data — without changing your storage vendor." />
-  <meta property="og:title" content="Fold — Dedup API for AI object storage" />
-  <meta property="og:description" content="Compress and deduplicate AI data before it hits S3. In private beta with design partners." />
+  <title>Fold · Save on AI storage</title>
+  <meta name="description" content="Optimize AI data on S3. Spend less, keep every log and dataset, reinvest the savings. Private beta." />
+  <meta property="og:title" content="Fold · Save on AI storage" />
+  <meta property="og:description" content="Optimize what you store on S3. Spend less, store smarter, same files, easy access." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://fold-sooty.vercel.app/" />
   <meta name="twitter:card" content="summary" />
@@ -21,7 +21,7 @@
 
   <div class="announcement-bar">
     <span class="pulse-dot"></span>
-    Private beta — pilots running in production · <strong id="slots-remaining">2</strong> slots left for Q3
+    Private beta · <strong id="slots-remaining">2</strong> design partner slots for Q3
     <a href="#waitlist" data-waitlist-plan="pilot">Apply now →</a>
   </div>
 
@@ -35,501 +35,444 @@
         <span></span><span></span>
       </button>
       <nav class="nav" id="nav">
-        <a href="#customer-results">Customer results</a>
-        <a href="#product">Product</a>
-        <a href="#demo">Demo</a>
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#demo">Examples</a>
         <a href="#calculator">Calculator</a>
         <a href="#pricing">Pricing</a>
+        <a href="#customer-results">Feedback</a>
         <a href="#founders">Team</a>
       </nav>
-      <a href="#waitlist" class="btn btn-header-cta">Request access</a>
+      <a href="#waitlist" class="btn btn-header-cta" data-waitlist-plan="pilot">Apply for pilot</a>
     </div>
     <nav class="nav-mobile" id="nav-mobile" aria-label="Mobile navigation">
-      <a href="#customer-results">Customer results</a>
-      <a href="#product">Product</a>
-      <a href="#demo">Demo</a>
+      <a href="#problem">Problem</a>
+      <a href="#solution">Solution</a>
+      <a href="#demo">Examples</a>
       <a href="#calculator">Calculator</a>
       <a href="#pricing">Pricing</a>
+      <a href="#customer-results">Feedback</a>
       <a href="#founders">Team</a>
-      <a href="#waitlist" class="btn btn-primary btn-block">Request access</a>
+      <a href="#waitlist" class="btn btn-primary btn-block" data-waitlist-plan="pilot">Apply for pilot</a>
     </nav>
   </header>
 
   <main>
+    <!-- 1. Hero -->
     <section class="hero">
-      <div class="hero-badge">Private beta · In production with design partners</div>
-      <h1>Dedup API for<br /><em>AI object storage</em></h1>
+      <h1>Save on AI storage.<br /><em>Keep everything you need.</em></h1>
       <p class="hero-sub">
-        Fold sits between your app and S3 — compressing and deduplicating AI data
-        losslessly before upload. Teams in our pilot program are already cutting
-        storage bills by up to 80% on embeddings, RAG corpora, and trace archives.
+        Optimize what you store on S3: spend less, store smarter, and put the savings back into your team.
+        Same files, easy access.
       </p>
       <div class="hero-cta">
-        <a href="#demo" class="btn btn-primary">See compression examples</a>
-        <a href="#calculator" class="btn btn-ghost">Savings calculator</a>
+        <a href="#waitlist" class="btn btn-primary" data-waitlist-plan="pilot">Apply for pilot</a>
+        <a href="#demo" class="btn btn-ghost">See examples</a>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-value" data-metric="dataOptimizedTB" data-suffix=" TB" data-decimals="1">—</span>
-          <span class="stat-label">optimized in pilots</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-value" data-metric="avgCompressionRatio" data-suffix="×" data-decimals="1">—</span>
-          <span class="stat-label">avg compression ratio</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-value" data-metric="designPartners" data-suffix="">—</span>
-          <span class="stat-label">design partners live</span>
+    </section>
+
+    <!-- 2. Problem -->
+    <section id="problem" class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label">The problem</div>
+        <h2>Duplicate data piles up. Margins take the hit.</h2>
+        <p class="section-desc">It's not just volume. Repetitive blocks sit on S3 untouched, more unstructured data keeps arriving, and the storage cost line keeps climbing month over month.</p>
+        <div class="cards three">
+          <article class="card">
+            <div class="card-label">01</div>
+            <h3>Messy storage, duplicate blocks</h3>
+            <p>Data lands through messy upload paths. The same log schemas, exports, and payloads get copied again and again. Big chunks of repetitive data pile up on S3 because nobody has time to audit what's actually redundant.</p>
+          </article>
+          <article class="card">
+            <div class="card-label">02</div>
+            <h3>Storage grows with AI usage</h3>
+            <p>The more inference, training, and evals you run, the more data you generate. Even more unstructured, repetitive payloads flow in on top of what's already there.</p>
+          </article>
+          <article class="card">
+            <div class="card-label">03</div>
+            <h3>A cost line that keeps growing</h3>
+            <p>S3 isn't a rounding error. It's a real line on your cost structure. As duplicate data accumulates, that line keeps climbing, and margins get squeezed even when revenue holds steady.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="integrations-section" aria-labelledby="integrations-heading">
-      <div class="integrations-inner">
+    <!-- 3. Our solution -->
+    <section id="solution" class="section">
+      <div class="section-label">Our solution</div>
+      <h2>Clean up what's stored. Optimize what's coming in.</h2>
+      <p class="section-desc">Fold runs on the storage you already use. Same files, lossless, easy to access.</p>
+
+      <div class="pathway-diagram">
+        <div class="pathway-row">
+          <span class="pathway-tag">New data</span>
+          <div class="pathway-track">
+            <span class="pathway-node">Incoming logs &amp; exports</span>
+            <span class="pathway-arrow" aria-hidden="true">→</span>
+            <span class="pathway-node pathway-fold">Fold pathway</span>
+            <span class="pathway-arrow" aria-hidden="true">→</span>
+            <span class="pathway-node pathway-out">Optimized on S3</span>
+          </div>
+        </div>
+        <div class="pathway-row">
+          <span class="pathway-tag">Existing data</span>
+          <div class="pathway-track">
+            <span class="pathway-node">What's already on S3</span>
+            <span class="pathway-arrow" aria-hidden="true">→</span>
+            <span class="pathway-node pathway-fold">Fold cleanup</span>
+            <span class="pathway-arrow" aria-hidden="true">→</span>
+            <span class="pathway-node pathway-out">Less space, same files</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards three how-steps">
+        <article class="card">
+          <div class="card-label">First</div>
+          <h3>Clean up existing storage</h3>
+          <p>Dedup and pack what's already on S3. You see savings immediately, with the same files and a smaller footprint.</p>
+        </article>
+        <article class="card">
+          <div class="card-label">Then</div>
+          <h3>Optimize new data on the way in</h3>
+          <p>Tune how logs, datasets, and exports land so future uploads stay efficient. Savings compound over time.</p>
+        </article>
+        <article class="card">
+          <div class="card-label">Always</div>
+          <h3>Same files, easy access</h3>
+          <p>No migration. Your data stays yours. Retrieve files exactly as before. We only reduce what you're billed for.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. Proof + savings (combined) -->
+    <section id="play-savings" class="section-alt play-savings">
+      <div class="section-inner">
+        <div class="play-savings-header">
+          <div class="section-label">Try it</div>
+          <h2>See the shrink. Model your savings.</h2>
+        </div>
+
+        <div id="demo" class="play-savings-block">
+          <h3 class="play-savings-subhead">Example workloads</h3>
+          <p class="play-savings-desc">Pick an example or upload a file to see how much storage you could save.</p>
+
+          <div class="demo-panel">
+            <div class="demo-samples">
+              <div class="demo-sample-actions">
+                <button type="button" class="btn btn-ghost btn-sm demo-sample-active" data-sample="agent-logs">Agent logs</button>
+                <button type="button" class="btn btn-ghost btn-sm" data-sample="service-logs">Service logs</button>
+                <button type="button" class="btn btn-ghost btn-sm" data-sample="training-export">Training export</button>
+              </div>
+            </div>
+
+            <div class="dropzone" id="dropzone">
+              <input type="file" id="file-input" multiple hidden />
+              <div class="dropzone-content">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M12 16V4m0 0l-4 4m4-4l4 4M4 17v1a2 2 0 002 2h12a2 2 0 002-2v-1"/>
+                </svg>
+                <p><strong>Upload a sample</strong> (logs, datasets, or exports)</p>
+                <span class="dropzone-hint">Instant estimate on this file · 3×–5× · use the calculator below for your full bill</span>
+              </div>
+            </div>
+
+            <div class="demo-results" id="demo-results">
+              <div class="results-header">
+                <h4 id="demo-results-title">Example results</h4>
+                <button type="button" class="btn btn-ghost btn-sm hidden" id="demo-reset-btn">Back to examples</button>
+              </div>
+              <p class="demo-upload-status hidden" id="demo-upload-status" role="status"></p>
+              <div class="results-summary" id="results-summary"></div>
+              <div class="results-table-wrap">
+                <table class="results-table" id="results-table">
+                  <thead>
+                    <tr>
+                      <th>File</th>
+                      <th>Raw size</th>
+                      <th>With Fold</th>
+                      <th>Ratio</th>
+                      <th>Saved</th>
+                    </tr>
+                  </thead>
+                  <tbody id="results-body"></tbody>
+                </table>
+              </div>
+              <p class="demo-note" id="demo-note">Typical ratios from demo reviews on repetitive logs &amp; datasets. <a href="#calculator">Model your S3 savings →</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="play-savings-divider" aria-hidden="true"></div>
+
+        <div id="calculator" class="play-savings-block">
+          <h3 class="play-savings-subhead">Savings calculator</h3>
+          <p class="play-savings-desc play-savings-desc-oneline">Illustrative — your real ratio comes from a free demo review on your S3 usage.</p>
+
+          <div class="impact-calc" id="impact-calc">
+            <div class="calc-hero-stat" id="calc-hero-stat">
+              <span class="calc-hero-pct" id="calc-hero-pct">80%</span>
+              <span class="calc-hero-text">less on S3 storage · <strong id="calc-hero-save">—</strong> back every month</span>
+            </div>
+
+            <div class="calc-grid">
+              <div class="calc-inputs">
+                <div class="calc-input-mode" role="tablist" aria-label="How do you want to enter your data?">
+                  <button type="button" class="calc-mode-btn active" data-mode="bill" role="tab" aria-selected="true">I know my S3 bill</button>
+                  <button type="button" class="calc-mode-btn" data-mode="size" role="tab" aria-selected="false">I know my data size</button>
+                </div>
+
+                <div class="calc-control" id="calc-bill-control">
+                  <div class="calc-control-head">
+                    <label for="calc-s3bill">What you pay AWS for S3 today</label>
+                    <span class="calc-control-value" id="calc-s3bill-val">$2,300/mo</span>
+                  </div>
+                  <input type="range" id="calc-s3bill" min="500" max="50000" step="250" value="2300" />
+                  <p class="calc-hint" id="calc-bill-hint">≈ 100 TB at ~$23/TB/mo (Standard, us-east-1)</p>
+                </div>
+
+                <div class="calc-control hidden" id="calc-size-control">
+                  <div class="calc-control-head">
+                    <label for="calc-storage">Data stored on S3</label>
+                    <div class="calc-unit-toggle" role="group" aria-label="Storage unit">
+                      <button type="button" class="calc-unit active" data-unit="tb">TB</button>
+                      <button type="button" class="calc-unit" data-unit="pb">PB</button>
+                    </div>
+                  </div>
+                  <input type="range" id="calc-storage" min="10" max="2000" step="10" value="100" />
+                  <p class="calc-control-value calc-size-readout"><span id="calc-storage-val">100</span> <span id="calc-storage-unit">TB</span> · ≈ <span id="calc-size-bill">$2,300</span>/mo on S3</p>
+                </div>
+
+                <div class="calc-control">
+                  <div class="calc-control-head">
+                    <label for="calc-ratio">Expected compression</label>
+                    <span class="calc-control-value"><span id="calc-ratio-val">3</span>× smaller</span>
+                  </div>
+                  <input type="range" id="calc-ratio" min="3" max="9" step="0.5" value="3" />
+                  <p class="calc-hint">Conservative <strong>3×</strong> · Typical <strong>5×</strong> · Strong <strong>9×</strong> (from your demo review)</p>
+                </div>
+              </div>
+
+              <div class="calc-viz">
+                <h4 class="calc-viz-title">Your monthly S3 bill</h4>
+                <div class="calc-bars" id="calc-s3-bars">
+                  <div class="calc-bar-row">
+                    <span class="calc-bar-label">Today</span>
+                    <div class="calc-bar-track"><div class="calc-bar-fill calc-bar-before" id="bar-before"></div></div>
+                    <span class="calc-bar-amount" id="bar-before-amt">—</span>
+                  </div>
+                  <div class="calc-bar-row">
+                    <span class="calc-bar-label">With Fold</span>
+                    <div class="calc-bar-track"><div class="calc-bar-fill calc-bar-after" id="bar-after"></div></div>
+                    <span class="calc-bar-amount" id="bar-after-amt">—</span>
+                  </div>
+                </div>
+                <p class="calc-bar-save-line" id="calc-bar-save-line">You keep <strong>80%</strong> of your S3 spend · <strong>$1,840/mo</strong> saved</p>
+
+                <h4 class="calc-viz-title">Same budget, store more</h4>
+                <p class="calc-viz-desc">What your budget holds today vs with Fold: logs, datasets, and exports.</p>
+                <div class="calc-capacity-viz" id="calc-capacity-viz">
+                  <div class="calc-capacity-row">
+                    <span class="calc-capacity-label">Today</span>
+                    <div class="calc-capacity-track calc-capacity-track-sm">
+                      <div class="calc-capacity-core calc-capacity-today"></div>
+                    </div>
+                    <span class="calc-capacity-meta" id="cap-today">1× data</span>
+                  </div>
+                  <div class="calc-capacity-row">
+                    <span class="calc-capacity-label">With Fold</span>
+                    <div class="calc-capacity-track">
+                      <div class="calc-capacity-core" id="cap-core"></div>
+                      <div class="calc-capacity-bonus" id="cap-bonus">
+                        <span class="calc-capacity-bonus-label" id="cap-bonus-label">+4× more</span>
+                      </div>
+                    </div>
+                    <span class="calc-capacity-meta calc-capacity-meta-highlight" id="cap-with">5× data</span>
+                  </div>
+                </div>
+                <p class="calc-capacity-foot" id="calc-capacity-foot">Keep <strong>5× more</strong> logs and datasets without asking AWS for more budget.</p>
+              </div>
+            </div>
+
+            <div class="calc-outcomes">
+              <article class="calc-outcome">
+                <div class="calc-outcome-headline-wrap">
+                  <h4 class="calc-outcome-headline">You save</h4>
+                </div>
+                <span class="calc-outcome-value" id="out-monthly">—</span>
+                <span class="calc-outcome-sub" id="out-annual">—</span>
+              </article>
+              <article class="calc-outcome">
+                <div class="calc-outcome-headline-wrap">
+                  <h4 class="calc-outcome-headline">Store more</h4>
+                </div>
+                <span class="calc-outcome-value" id="out-retention">—</span>
+                <span class="calc-outcome-sub" id="out-retention-sub">same S3 bill · more room for the data you keep</span>
+              </article>
+              <article class="calc-outcome">
+                <div class="calc-outcome-headline-wrap">
+                  <h4 class="calc-outcome-headline">Put it back in the team</h4>
+                </div>
+                <span class="calc-outcome-value" id="out-reinvest">—</span>
+                <span class="calc-outcome-sub">redirect savings into hiring, not AWS rent</span>
+              </article>
+              <article class="calc-outcome">
+                <div class="calc-outcome-headline-wrap">
+                  <h4 class="calc-outcome-headline">Better margins</h4>
+                </div>
+                <span class="calc-outcome-value" id="out-investor">—</span>
+                <span class="calc-outcome-sub" id="out-investor-sub">cleaner, leaner cost structure, same revenue, less on the books</span>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stack + code -->
+    <section id="stack" class="section section-alt stack-section" aria-labelledby="integrations-heading">
+      <div class="section-inner">
         <div class="section-label">Easy integration</div>
-        <h2 id="integrations-heading">Works with your existing stack</h2>
-        <p class="integrations-desc">One API call in your upload path. No migration, no new storage vendor — plug into the tools you already run.</p>
-        <ul class="integrations-grid">
+        <h2 id="integrations-heading">One API call in your upload path</h2>
+        <p class="section-desc">Works with S3, GCS, Azure Blob, and R2. When you need a file back, open it from your computer — same as you'd expect. No migration, no new storage vendor.</p>
+        <ul class="integrations-row">
           <li class="integration-tile">
-            <span class="integration-logo" aria-hidden="true">
-              <img src="images/integrations/amazons3.svg" alt="" width="44" height="44" loading="lazy" />
-            </span>
-            <span class="integration-name">Amazon S3</span>
+            <img src="images/integrations/amazons3.svg" alt="" width="40" height="40" loading="lazy" />
+            <span>Amazon S3</span>
           </li>
           <li class="integration-tile">
-            <span class="integration-logo" aria-hidden="true">
-              <img src="images/integrations/googlecloud.svg" alt="" width="44" height="44" loading="lazy" />
-            </span>
-            <span class="integration-name">Google Cloud Storage</span>
+            <img src="images/integrations/googlecloud.svg" alt="" width="40" height="40" loading="lazy" />
+            <span>Google Cloud Storage</span>
           </li>
           <li class="integration-tile">
-            <span class="integration-logo" aria-hidden="true">
-              <img src="images/integrations/cloudflare.svg" alt="" width="44" height="44" loading="lazy" />
-            </span>
-            <span class="integration-name">Cloudflare R2</span>
+            <img src="images/integrations/azure.svg" alt="" width="40" height="40" loading="lazy" />
+            <span>Azure Blob</span>
           </li>
           <li class="integration-tile">
-            <span class="integration-logo" aria-hidden="true">
-              <img src="images/integrations/langchain-icon.svg" alt="" width="44" height="44" loading="lazy" />
-            </span>
-            <span class="integration-name">LangChain</span>
-          </li>
-          <li class="integration-tile">
-            <span class="integration-logo" aria-hidden="true">
-              <img src="images/integrations/langfuse.png" alt="" width="44" height="44" loading="lazy" />
-            </span>
-            <span class="integration-name">Langfuse</span>
-          </li>
-          <li class="integration-tile">
-            <span class="integration-logo" aria-hidden="true">
-              <img src="images/integrations/awslambda.svg" alt="" width="44" height="44" loading="lazy" />
-            </span>
-            <span class="integration-name">AWS Lambda</span>
+            <img src="images/integrations/cloudflare.svg" alt="" width="40" height="40" loading="lazy" />
+            <span>Cloudflare R2</span>
           </li>
         </ul>
-      </div>
-    </section>
-
-    <section class="code-preview">
-      <div class="code-window">
-        <div class="code-header">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-          <span class="code-title">upload.ts</span>
-          <span class="code-status">● Production</span>
-        </div>
-        <pre class="code-body"><code><span class="kw">import</span> { Fold } <span class="kw">from</span> <span class="str">'@fold/sdk'</span>;
+        <div class="code-window stack-code">
+          <div class="code-header">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="code-title">upload.ts</span>
+          </div>
+          <pre class="code-body"><code><span class="kw">import</span> { Fold } <span class="kw">from</span> <span class="str">'@fold/sdk'</span>;
 
 <span class="kw">const</span> fold = <span class="kw">new</span> <span class="fn">Fold</span>({ apiKey: process.env.<span class="var">FOLD_KEY</span> });
 
-<span class="cm">// Compress before upload — transparent to your app</span>
-<span class="kw">const</span> compressed = <span class="kw">await</span> fold.<span class="fn">compress</span>(ragCorpusBlob);
-<span class="kw">await</span> s3.<span class="fn">putObject</span>({ Bucket: <span class="str">'embeddings'</span>, Body: compressed });</code></pre>
+<span class="cm">// Pack before upload — same file on read</span>
+<span class="kw">const</span> packed = <span class="kw">await</span> fold.<span class="fn">compress</span>(trainingExportBlob);
+<span class="kw">await</span> s3.<span class="fn">putObject</span>({ Bucket: <span class="str">'datasets'</span>, Body: packed });</code></pre>
+        </div>
       </div>
     </section>
 
+    <!-- Pricing -->
+    <section id="pricing" class="section">
+      <div class="section-inner">
+        <div class="section-label">Pricing</div>
+        <h2>Usage-based. You save more than you pay.</h2>
+        <p class="section-desc">We're in private beta. Start with a free pilot, or get started on Growth. Pricing scales with data compressed, not seats.</p>
+
+        <div class="pricing-grid">
+          <article class="card pricing-card featured">
+            <div class="pricing-badge">Start here</div>
+            <h3>Pilot</h3>
+            <div class="price"><span class="price-amount">Free</span></div>
+            <p class="price-desc">30-day design partner program</p>
+            <ul class="pricing-features">
+              <li>Free demo review on your S3 usage</li>
+              <li>Cleanup + pathway pilot</li>
+              <li>Before/after ratio on your data</li>
+              <li>Slack support channel</li>
+            </ul>
+            <a href="#waitlist" class="btn btn-primary btn-block" data-waitlist-plan="pilot">Apply for pilot</a>
+          </article>
+          <article class="card pricing-card">
+            <h3>Growth</h3>
+            <div class="price"><span class="price-amount">$299</span><span class="price-period">/mo</span></div>
+            <p class="price-desc">+ $0.006 per GB compressed</p>
+            <ul class="pricing-features">
+              <li>Unlimited API calls</li>
+              <li>S3, GCS, Azure Blob, R2</li>
+              <li>Usage dashboard &amp; analytics</li>
+              <li>99.9% uptime SLA</li>
+            </ul>
+            <button type="button" class="btn btn-ghost btn-block" data-contact="growth">Get started</button>
+          </article>
+          <article class="card pricing-card">
+            <h3>Enterprise</h3>
+            <div class="price"><span class="price-amount">Custom</span></div>
+            <p class="price-desc">Volume discounts + dedicated support</p>
+            <ul class="pricing-features">
+              <li>On-prem / VPC deployment</li>
+              <li>Custom retention policies</li>
+              <li>SOC 2 compliance support</li>
+              <li>Annual contracts</li>
+            </ul>
+            <button type="button" class="btn btn-ghost btn-block" data-contact="enterprise">Contact sales</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Social proof -->
     <section id="customer-results" class="section section-alt">
       <div class="section-inner">
-      <div class="section-label">Customer results</div>
-      <h2>Already saving teams real money on S3</h2>
-      <p class="section-desc">Private beta, but already live — <span data-metric="designPartners" data-suffix=" teams">—</span> running Fold in production on their own object storage.</p>
+        <div class="section-label">Early feedback</div>
+        <h2>What pilot teams are telling us</h2>
 
-      <div class="testimonials">
-        <blockquote class="testimonial">
-          <p>"We were about to double our S3 budget. Fold paid for itself in the first week of the pilot."</p>
-          <footer>— VP Engineering, Series A RAG startup</footer>
-        </blockquote>
-        <blockquote class="testimonial">
-          <p>"Finally — enterprise-grade dedup without buying a storage array. One API call in our upload path."</p>
-          <footer>— Head of Platform, AI observability company</footer>
-        </blockquote>
-      </div>
-
-      <div class="metrics-grid">
-        <article class="metric-card highlight-metric">
-          <span class="metric-label">Customer savings</span>
-          <span class="metric-number" data-metric="customerSavingsMonthly" data-prefix="$" data-suffix="/mo" data-decimals="0">—</span>
-          <span class="metric-sub">storage costs cut across live pilots</span>
-        </article>
-        <article class="metric-card">
-          <span class="metric-label">Avg compression</span>
-          <span class="metric-number" data-metric="avgCompressionRatio" data-suffix="×" data-decimals="1">—</span>
-          <span class="metric-sub">across production workloads</span>
-        </article>
-        <article class="metric-card">
-          <span class="metric-label">Data optimized</span>
-          <span class="metric-number" data-metric="dataOptimizedTB" data-suffix=" TB" data-decimals="1">—</span>
-          <span class="metric-sub">compressed in active pilots</span>
-        </article>
-        <article class="metric-card">
-          <span class="metric-label">Teams in production</span>
-          <span class="metric-number" data-metric="designPartners" data-suffix="">—</span>
-          <span class="metric-sub">design partners live today</span>
-        </article>
-      </div>
-
-      <h3 class="subsection-title">In production today</h3>
-      <div class="cards two partner-cards">
-        <article class="card partner-card">
-          <div class="partner-header">
-            <span class="partner-stage">Series A</span>
-            <span class="partner-status live">Live pilot</span>
-          </div>
-          <h4>RAG search infrastructure</h4>
-          <p>84 TB embedding store on S3. Fold reduced monthly storage from $1,940 to $380 — 80% savings, zero migration.</p>
-          <div class="partner-stat">6.2× compression · 70 TB saved</div>
-        </article>
-        <article class="card partner-card">
-          <div class="partner-header">
-            <span class="partner-stage">Seed</span>
-            <span class="partner-status live">Live pilot</span>
-          </div>
-          <h4>Self-hosted AI observability</h4>
-          <p>Trace archive growing 40 GB/week. Dedup on repetitive JSON tool-call schemas cut weekly ingest by 72%.</p>
-          <div class="partner-stat">3.6× compression · $2.1k/mo saved</div>
-        </article>
-        <article class="card partner-card">
-          <div class="partner-header">
-            <span class="partner-stage">Series B</span>
-            <span class="partner-status onboarding">Onboarding</span>
-          </div>
-          <h4>ML training platform</h4>
-          <p>Model checkpoint dedup across experiment runs. Pilot targeting 5 TB → ~800 GB on cold storage tier.</p>
-          <div class="partner-stat">Est. $4.8k/mo savings</div>
-        </article>
-        <article class="card partner-card">
-          <div class="partner-header">
-            <span class="partner-stage">Seed</span>
-            <span class="partner-status onboarding">Onboarding</span>
-          </div>
-          <h4>Agent dev infrastructure</h4>
-          <p>RAG document corpus + evaluation datasets. Signed LOI for Q3 production rollout.</p>
-          <div class="partner-stat">LOI signed · Q3 production rollout</div>
-        </article>
-      </div>
-      </div>
-    </section>
-
-    <section id="problem" class="section">
-      <div class="section-label">The problem</div>
-      <h2>AI data is piling up on S3</h2>
-      <div class="cards three">
-        <article class="card">
-          <div class="card-label">01</div>
-          <h3>Storage grows faster than revenue</h3>
-          <p>RAG document sets, embedding indexes, model checkpoints, and observability traces — teams that retain AI data on their own infrastructure are watching S3 costs climb every month.</p>
-        </article>
-        <article class="card">
-          <div class="card-label">02</div>
-          <h3>Enterprise dedup isn't accessible</h3>
-          <p>Everpure and NetApp solve this for Fortune 500 data centers. AI startups on S3 get gzip — which doesn't understand AI data shapes.</p>
-        </article>
-        <article class="card">
-          <div class="card-label">03</div>
-          <h3>Delete isn't always an option</h3>
-          <p>Some teams purge logs after 12 days. But RAG corpora, training data, and compliance archives stick around — and that's where storage bills compound.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="product" class="section section-alt">
-      <div class="section-inner">
-      <div class="section-label">The product</div>
-      <h2>A dedup layer, not another storage vendor</h2>
-      <p class="section-desc">We don't replace S3. We make everything you store smaller — one API call in your existing upload pipeline.</p>
-
-      <div class="flow">
-        <div class="flow-step">
-          <span class="flow-num">1</span>
-          <h4>Your app generates data</h4>
-          <p>Embeddings, RAG docs, traces, checkpoints</p>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step highlight">
-          <span class="flow-num">2</span>
-          <h4>Fold compresses</h4>
-          <p>Lossless dedup + proprietary reduction engine</p>
-        </div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-step">
-          <span class="flow-num">3</span>
-          <h4>Store anywhere</h4>
-          <p>S3, GCS, R2 — decompress on read, transparently</p>
-        </div>
-      </div>
-
-      <div class="cards two">
-        <article class="card card-feature">
-          <h3>Why teams switch to Fold</h3>
-          <ul class="feature-list">
-            <li><strong>Built for AI data shapes</strong> — repetitive JSON, embeddings, token streams</li>
-            <li><strong>Live in an afternoon</strong> — drop-in API, no storage migration</li>
-            <li><strong>Lossless by default</strong> — decompress exactly what you stored</li>
-            <li><strong>Your data stays yours</strong> — encrypted in transit, never persisted on our side</li>
-          </ul>
-        </article>
-        <article class="card card-feature">
-          <h3>Roadmap</h3>
-          <ul class="feature-list">
-            <li><strong>Now:</strong> Production pilots with RAG, observability, and ML teams</li>
-            <li><strong>Q3:</strong> SDK integrations for LangChain, Langfuse, Vercel AI SDK</li>
-            <li><strong>Vision:</strong> The default dedup layer for all cloud object storage</li>
-          </ul>
-        </article>
-      </div>
-      </div>
-    </section>
-
-    <section id="demo" class="section">
-      <div class="section-label">Compression examples</div>
-      <h2>How Fold compresses real workloads</h2>
-      <p class="section-desc">Example workloads show typical design-session results. Upload a sample file for a conservative ratio on <em>that file</em> — then use the calculator for your full TB-scale S3 bill (<strong>3×–9×</strong>).</p>
-
-      <div class="demo-panel">
-        <div class="demo-samples">
-          <span class="demo-samples-label">Example workloads</span>
-          <div class="demo-sample-actions">
-            <button type="button" class="btn btn-ghost btn-sm demo-sample-active" data-sample="agent-logs">Agent logs</button>
-            <button type="button" class="btn btn-ghost btn-sm" data-sample="service-logs">Service logs</button>
-            <button type="button" class="btn btn-ghost btn-sm" data-sample="training-export">Training export</button>
-          </div>
+        <div class="testimonials">
+          <blockquote class="testimonial">
+            <p>"Fold helped us see how much duplicate data we were actually storing, and what we could save without deleting anything."</p>
+            <footer>— Platform lead, AI infrastructure company</footer>
+          </blockquote>
+          <blockquote class="testimonial">
+            <p>"Enterprise-grade dedup without buying a storage array. One API call in our upload path."</p>
+            <footer>— Engineering lead, data-heavy SaaS</footer>
+          </blockquote>
         </div>
 
-        <div class="dropzone" id="dropzone">
-          <input type="file" id="file-input" multiple hidden />
-          <div class="dropzone-content">
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M12 16V4m0 0l-4 4m4-4l4 4M4 17v1a2 2 0 002 2h12a2 2 0 002-2v-1"/>
-            </svg>
-            <p><strong>Upload a sample</strong> — logs, datasets, or exports</p>
-            <span class="dropzone-hint">Instant estimate on this file · 3×–5× · TB-scale savings in the calculator below</span>
-          </div>
-        </div>
-
-        <div class="demo-results" id="demo-results">
-          <div class="results-header">
-            <h3 id="demo-results-title">Example results</h3>
-            <button type="button" class="btn btn-ghost btn-sm hidden" id="demo-reset-btn">Back to examples</button>
-          </div>
-          <p class="demo-upload-status hidden" id="demo-upload-status" role="status"></p>
-          <div class="results-summary" id="results-summary"></div>
-          <div class="results-table-wrap">
-            <table class="results-table" id="results-table">
-              <thead>
-                <tr>
-                  <th>File</th>
-                  <th>Raw size</th>
-                  <th>With Fold</th>
-                  <th>Ratio</th>
-                  <th>Saved</th>
-                </tr>
-              </thead>
-              <tbody id="results-body"></tbody>
-            </table>
-          </div>
-          <p class="demo-note" id="demo-note">Typical ratios from design sessions on repetitive logs &amp; datasets. <a href="#calculator">Model your S3 savings →</a></p>
-        </div>
-      </div>
-    </section>
-
-    <section id="calculator" class="section section-alt">
-      <div class="section-inner">
-        <div class="section-label">Savings calculator</div>
-        <h2>What could you save on S3?</h2>
-        <p class="section-desc">Illustrative only — your real ratio comes from a free design session.</p>
-
-        <div class="impact-calc" id="impact-calc">
-          <div class="calc-hero-stat" id="calc-hero-stat">
-            <span class="calc-hero-pct" id="calc-hero-pct">80%</span>
-            <span class="calc-hero-text">less on S3 storage · <strong id="calc-hero-save">—</strong> back every month</span>
-          </div>
-
-          <div class="calc-grid">
-            <div class="calc-inputs">
-              <div class="calc-input-mode" role="tablist" aria-label="How do you want to enter your data?">
-                <button type="button" class="calc-mode-btn active" data-mode="bill" role="tab" aria-selected="true">I know my S3 bill</button>
-                <button type="button" class="calc-mode-btn" data-mode="size" role="tab" aria-selected="false">I know my data size</button>
-              </div>
-
-              <div class="calc-control" id="calc-bill-control">
-                <div class="calc-control-head">
-                  <label for="calc-s3bill">What you pay AWS for S3 today</label>
-                  <span class="calc-control-value" id="calc-s3bill-val">$2,300/mo</span>
-                </div>
-                <input type="range" id="calc-s3bill" min="500" max="50000" step="250" value="2300" />
-                <p class="calc-hint" id="calc-bill-hint">≈ 100 TB at ~$23/TB/mo (Standard, us-east-1)</p>
-              </div>
-
-              <div class="calc-control hidden" id="calc-size-control">
-                <div class="calc-control-head">
-                  <label for="calc-storage">Data stored on S3</label>
-                  <div class="calc-unit-toggle" role="group" aria-label="Storage unit">
-                    <button type="button" class="calc-unit active" data-unit="tb">TB</button>
-                    <button type="button" class="calc-unit" data-unit="pb">PB</button>
-                  </div>
-                </div>
-                <input type="range" id="calc-storage" min="10" max="2000" step="10" value="100" />
-                <p class="calc-control-value calc-size-readout"><span id="calc-storage-val">100</span> <span id="calc-storage-unit">TB</span> · ≈ <span id="calc-size-bill">$2,300</span>/mo on S3</p>
-              </div>
-
-              <div class="calc-control">
-                <div class="calc-control-head">
-                  <label for="calc-ratio">Expected compression</label>
-                  <span class="calc-control-value"><span id="calc-ratio-val">3</span>× smaller</span>
-                </div>
-                <input type="range" id="calc-ratio" min="3" max="9" step="0.5" value="3" />
-                <p class="calc-hint">Conservative <strong>3×</strong> · Typical <strong>5×</strong> · Strong <strong>9×</strong> — from your design session</p>
-              </div>
+        <h3 class="subsection-title">Current pilot portfolio</h3>
+        <div class="cards two partner-cards">
+          <article class="card partner-card">
+            <div class="partner-header">
+              <span class="partner-stage">Medtech</span>
             </div>
-
-            <div class="calc-viz">
-              <h3 class="calc-viz-title">Your monthly S3 bill</h3>
-              <div class="calc-bars" id="calc-s3-bars">
-                <div class="calc-bar-row">
-                  <span class="calc-bar-label">Today</span>
-                  <div class="calc-bar-track"><div class="calc-bar-fill calc-bar-before" id="bar-before"></div></div>
-                  <span class="calc-bar-amount" id="bar-before-amt">—</span>
-                </div>
-                <div class="calc-bar-row">
-                  <span class="calc-bar-label">With Fold</span>
-                  <div class="calc-bar-track"><div class="calc-bar-fill calc-bar-after" id="bar-after"></div></div>
-                  <span class="calc-bar-amount" id="bar-after-amt">—</span>
-                </div>
-              </div>
-              <p class="calc-bar-save-line" id="calc-bar-save-line">You keep <strong>80%</strong> of your S3 spend · <strong>$1,840/mo</strong> saved</p>
-
-              <h3 class="calc-viz-title">Same budget — store more</h3>
-              <p class="calc-viz-desc">What your S3 budget holds today vs how much data that same budget could keep with Fold — logs, datasets, customer files, model exports.</p>
-              <div class="calc-capacity-viz" id="calc-capacity-viz">
-                <div class="calc-capacity-row">
-                  <span class="calc-capacity-label">Today</span>
-                  <div class="calc-capacity-track calc-capacity-track-sm">
-                    <div class="calc-capacity-core calc-capacity-today"></div>
-                  </div>
-                  <span class="calc-capacity-meta" id="cap-today">1× data</span>
-                </div>
-                <div class="calc-capacity-row">
-                  <span class="calc-capacity-label">With Fold</span>
-                  <div class="calc-capacity-track">
-                    <div class="calc-capacity-core" id="cap-core"></div>
-                    <div class="calc-capacity-bonus" id="cap-bonus">
-                      <span class="calc-capacity-bonus-label" id="cap-bonus-label">+4× more</span>
-                    </div>
-                  </div>
-                  <span class="calc-capacity-meta calc-capacity-meta-highlight" id="cap-with">5× data</span>
-                </div>
-              </div>
-              <p class="calc-capacity-foot" id="calc-capacity-foot">Keep <strong>5× more</strong> agent traces &amp; RAG files — without asking AWS for more budget.</p>
+            <h4>Health &amp; imaging data</h4>
+            <p>Patient records, imaging archives, and regulatory datasets on S3. High-volume, repetitive, hard to delete.</p>
+          </article>
+          <article class="card partner-card">
+            <div class="partner-header">
+              <span class="partner-stage">Fintech</span>
             </div>
-          </div>
-
-          <div class="calc-outcomes">
-            <article class="calc-outcome">
-              <div class="calc-outcome-headline-wrap">
-                <h4 class="calc-outcome-headline">You save</h4>
-              </div>
-              <span class="calc-outcome-value" id="out-monthly">—</span>
-              <span class="calc-outcome-sub" id="out-annual">—</span>
-            </article>
-            <article class="calc-outcome">
-              <div class="calc-outcome-headline-wrap">
-                <h4 class="calc-outcome-headline">Store more</h4>
-              </div>
-              <span class="calc-outcome-value" id="out-retention">—</span>
-              <span class="calc-outcome-sub" id="out-retention-sub">same S3 bill · more room for the data you keep</span>
-            </article>
-            <article class="calc-outcome">
-              <div class="calc-outcome-headline-wrap">
-                <h4 class="calc-outcome-headline">Put it back in the team</h4>
-              </div>
-              <span class="calc-outcome-value" id="out-reinvest">—</span>
-              <span class="calc-outcome-sub">redirect savings into hiring — not AWS rent</span>
-            </article>
-            <article class="calc-outcome">
-              <div class="calc-outcome-headline-wrap">
-                <h4 class="calc-outcome-headline">Better margins</h4>
-              </div>
-              <span class="calc-outcome-value" id="out-investor">—</span>
-              <span class="calc-outcome-sub" id="out-investor-sub">cleaner, leaner cost structure — same revenue, less on the books</span>
-            </article>
-          </div>
-
-          <p class="calc-disclaimer">Estimates use ~$23/TB/mo S3 Standard (us-east-1). Storage only — excludes egress &amp; Fold fees. Real ratio from a free design session on your data.</p>
+            <h4>Transaction &amp; audit logs</h4>
+            <p>Compliance trails, transaction history, and audit exports that must be retained and keep growing.</p>
+          </article>
+          <article class="card partner-card">
+            <div class="partner-header">
+              <span class="partner-stage">Social commerce</span>
+            </div>
+            <h4>Content &amp; catalog feeds</h4>
+            <p>Media, product catalogs, and user-generated content — storage that scales with platform activity.</p>
+          </article>
+          <article class="card partner-card">
+            <div class="partner-header">
+              <span class="partner-stage">AI &amp; ML</span>
+            </div>
+            <h4>Training &amp; inference data</h4>
+            <p>Model checkpoints, training exports, and inference logs. Repetitive JSON and datasets across runs.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="pricing" class="section section-alt">
-      <div class="section-inner">
-      <div class="section-label">Pricing</div>
-      <h2>Usage-based. You save more than you pay.</h2>
-      <p class="section-desc">We're in private beta. Start with a free pilot, or get started on Growth when you're ready to go live. Pricing scales with data compressed, not seats.</p>
-
-      <div class="pricing-grid">
-        <article class="card pricing-card featured">
-          <div class="pricing-badge">Start here</div>
-          <h3>Pilot</h3>
-          <div class="price"><span class="price-amount">Free</span></div>
-          <p class="price-desc">30-day design partner program</p>
-          <ul class="pricing-features">
-            <li>Up to 500 GB compressed</li>
-            <li>Dedicated onboarding</li>
-            <li>Custom compression profiling</li>
-            <li>Slack support channel</li>
-          </ul>
-          <a href="#waitlist" class="btn btn-primary btn-block" data-waitlist-plan="pilot">Apply for pilot</a>
-        </article>
-        <article class="card pricing-card">
-          <h3>Growth</h3>
-          <div class="price"><span class="price-amount">$299</span><span class="price-period">/mo</span></div>
-          <p class="price-desc">+ $0.006 per GB compressed · standard plan</p>
-          <ul class="pricing-features">
-            <li>Unlimited API calls</li>
-            <li>S3, GCS, R2 connectors</li>
-            <li>Usage dashboard & analytics</li>
-            <li>99.9% uptime SLA</li>
-          </ul>
-          <button type="button" class="btn btn-ghost btn-block" data-contact="growth">Get started</button>
-        </article>
-        <article class="card pricing-card">
-          <h3>Enterprise</h3>
-          <div class="price"><span class="price-amount">Custom</span></div>
-          <p class="price-desc">Volume discounts + dedicated support</p>
-          <ul class="pricing-features">
-            <li>On-prem / VPC deployment</li>
-            <li>Custom retention policies</li>
-            <li>SOC 2 compliance support</li>
-            <li>Annual contracts</li>
-          </ul>
-          <button type="button" class="btn btn-ghost btn-block" data-contact="enterprise">Contact sales</button>
-        </article>
-      </div>
-      </div>
-    </section>
-
+    <!-- 8. Team -->
     <section id="founders" class="section">
       <div class="section-label">Team</div>
       <h2>Dedup and integration expertise</h2>
@@ -545,23 +488,24 @@
           <img src="images/siyang-chen.png" alt="Siyang Chen" class="founder-photo" width="120" height="120" />
           <h3>Siyang Chen</h3>
           <p class="founder-role">CTO</p>
-          <p>Staff Software Engineer at Everpure (previously Pure Storage). Tech lead on deduplication for FlashArray — enterprise-grade data reduction that shrinks 10 GB to ~1 GB losslessly. Based in Mountain View, California. Duke CS.</p>
+          <p>Staff Software Engineer at Everpure (previously Pure Storage). Tech lead on deduplication for FlashArray, enterprise-grade data reduction that shrinks 10 GB to ~1 GB losslessly. Based in Mountain View, California. Duke CS.</p>
           <a href="https://www.linkedin.com/in/siyang-chen/" class="founder-link" target="_blank" rel="noopener">LinkedIn →</a>
         </article>
       </div>
     </section>
 
+    <!-- 9. Waitlist -->
     <section id="waitlist" class="section waitlist-section section-alt">
       <div class="section-inner">
-      <div class="waitlist-box">
-        <h2 id="waitlist-title">Join <span id="waitlist-count">37</span>+ teams on the waitlist</h2>
-        <p id="waitlist-desc">We're accepting <strong id="waitlist-slots">2</strong> more design partners for Q3. Running observability on your own infra? Building RAG pipelines? Let's talk.</p>
-        <form class="waitlist-form" id="waitlist-form">
-          <input type="email" placeholder="you@company.com" required id="email-input" />
-          <button type="submit" class="btn btn-primary" id="waitlist-submit">Request early access</button>
-        </form>
-        <p class="waitlist-note" id="waitlist-note"></p>
-      </div>
+        <div class="waitlist-box">
+          <h2 id="waitlist-title">Want to find out more?</h2>
+          <p id="waitlist-desc">Join the waitlist. We're accepting <strong id="waitlist-slots">2</strong> more design partners for Q3.</p>
+          <form class="waitlist-form" id="waitlist-form">
+            <input type="email" placeholder="you@company.com" required id="email-input" />
+            <button type="submit" class="btn btn-primary" id="waitlist-submit">Apply for pilot</button>
+          </form>
+          <p class="waitlist-note" id="waitlist-note"></p>
+        </div>
       </div>
     </section>
   </main>

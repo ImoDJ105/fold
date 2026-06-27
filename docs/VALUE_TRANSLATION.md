@@ -263,5 +263,4 @@ Same physics, two framings:
 
 ## Related
 
-- Full strategy: `docs/BUSINESS_CASE.md`
-- Product model: `docs/SIYANG_SYNC_SHEET.md`
+- Founder strategy & product sync: `internal/` (Imogen + Siyang only — not public)

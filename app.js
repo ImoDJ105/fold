@@ -27,11 +27,9 @@ function initMetrics() {
 
   const slots = document.getElementById('slots-remaining');
   const waitlistSlots = document.getElementById('waitlist-slots');
-  const waitlistCount = document.getElementById('waitlist-count');
 
   if (slots && m.pilotSlotsRemaining !== undefined) slots.textContent = m.pilotSlotsRemaining;
   if (waitlistSlots && m.pilotSlotsRemaining !== undefined) waitlistSlots.textContent = m.pilotSlotsRemaining;
-  if (waitlistCount && m.waitlistCount !== undefined) waitlistCount.textContent = m.waitlistCount;
 }
 
 function formatCurrency(n, decimals = 0) {
@@ -172,10 +170,10 @@ function initImpactCalculator() {
     document.getElementById('calc-bar-save-line').innerHTML =
       `You keep <strong>${r.savingsPct}%</strong> of your S3 spend · <strong>${formatCurrency(r.monthlySavings)}/mo</strong> saved`;
 
-    const corePct = (100 / ratio).toFixed(1);
-    const bonusPct = (100 - 100 / ratio).toFixed(1);
+    const corePct = (100 / ratio);
+    const bonusPct = 100 - corePct;
     const todayTrack = document.querySelector('.calc-capacity-track-sm');
-    if (todayTrack) todayTrack.style.maxWidth = `${corePct}%`;
+    if (todayTrack) todayTrack.style.width = `${corePct}%`;
     document.getElementById('cap-core').style.width = `${corePct}%`;
     document.getElementById('cap-bonus').style.width = `${bonusPct}%`;
     document.getElementById('cap-bonus-label').textContent =
@@ -186,16 +184,16 @@ function initImpactCalculator() {
 
     const eff = formatStorage(r.effectiveTb);
     document.getElementById('calc-capacity-foot').innerHTML =
-      `Keep <strong>${ratio % 1 === 0 ? ratio : ratio.toFixed(1)}× more</strong> of the data you retain — logs, datasets &amp; files — without a bigger AWS budget.`;
+      `Keep <strong>${ratio % 1 === 0 ? ratio : ratio.toFixed(1)}× more</strong> of the data you retain (logs, datasets &amp; files) without a bigger AWS budget.`;
 
     document.getElementById('out-monthly').textContent = `${formatCurrency(r.monthlySavings)}/mo`;
     document.getElementById('out-annual').textContent =
-      `${formatCurrency(r.annualSavings)}/yr stays in your company — not AWS`;
+      `${formatCurrency(r.annualSavings)}/yr stays in your company, not AWS`;
 
     document.getElementById('out-retention').textContent =
       ratio % 1 === 0 ? `${ratio}× more` : `${ratio.toFixed(1)}× more`;
     document.getElementById('out-retention-sub').textContent =
-      'same S3 bill · more logs, datasets & files you retain';
+      'same S3 bill · more room for the data you keep';
 
     const engLabel =
       r.engineerFraction >= 1
@@ -205,9 +203,9 @@ function initImpactCalculator() {
           : `~${Math.round(r.engineerFraction * 12)} eng-months`;
     document.getElementById('out-reinvest').textContent = engLabel;
 
-    document.getElementById('out-investor').textContent = `−${r.savingsPct}% storage COGS`;
+    document.getElementById('out-investor').textContent = `−${r.savingsPct}% on storage`;
     document.getElementById('out-investor-sub').textContent =
-      'Cleaner, leaner unit economics — storage is a cost of serving customers, and that line just got smaller.';
+      'cleaner, leaner cost structure, same revenue, less on the books';
   }
 
   s3BillEl.addEventListener('input', () => {
@@ -429,7 +427,7 @@ function loadDemoSamples(keys) {
   renderDemoTable(rows, {
     title: 'Example results',
     note:
-      'Typical ratios from design sessions on repetitive logs & datasets. <a href="#calculator">Model your S3 savings →</a>',
+      'Typical ratios from demo reviews on repetitive logs & datasets. <a href="#calculator">Model your S3 savings →</a>',
     showReset: false,
   });
 
@@ -463,9 +461,9 @@ async function handleUploadedFiles(fileList) {
     if (!demoUploadRows.length) return;
 
     renderDemoTable(demoUploadRows, {
-      title: 'Your file — Fold estimate',
+      title: 'Your file: Fold estimate',
       note:
-        'Conservative estimate on this file (3×–5×). At TB scale on S3, design sessions often reach 3×–9× — <a href="#calculator">model your bill →</a>',
+        'Conservative estimate on this file (3×–5×). At scale on S3, demo reviews often reach 3×–9×. <a href="#calculator">Model your bill →</a>',
       showReset: true,
     });
 
@@ -475,7 +473,7 @@ async function handleUploadedFiles(fileList) {
 
     document.querySelectorAll('[data-sample]').forEach((btn) => btn.classList.remove('demo-sample-active'));
   } catch (_) {
-    setUploadStatus('Could not read that file — try JSON, JSONL, CSV, Parquet, or logs.', true);
+    setUploadStatus('Could not read that file. Try JSON, JSONL, CSV, Parquet, or logs.', true);
     return;
   }
 
@@ -578,9 +576,9 @@ const CONTACT_INTENTS = {
 
 const WAITLIST_INTENTS = {
   default: {
-    subject: 'Fold — early access request',
-    bodyIntro: 'I would like to request early access.',
-    submitLabel: 'Request early access',
+    subject: 'Fold — pilot application',
+    bodyIntro: 'I would like to apply for the free pilot program.',
+    submitLabel: 'Apply for pilot',
   },
   pilot: {
     subject: 'Fold — pilot application',
@@ -588,7 +586,7 @@ const WAITLIST_INTENTS = {
     submitLabel: 'Apply for pilot',
     title: 'Apply for the free pilot',
     description:
-      '30-day design partner program — up to 500 GB compressed, dedicated onboarding, and a Slack support channel.',
+      '30-day design partner program: free demo review, cleanup + pathway pilot, and a Slack support channel.',
   },
 };
 
@@ -614,9 +612,9 @@ function setWaitlistPlan(plan) {
     titleEl.textContent = currentWaitlistIntent.title;
     descEl.innerHTML = `${currentWaitlistIntent.description} We're accepting <strong id="waitlist-slots">${getPilotSlots()}</strong> more design partners for Q3.`;
   } else {
-    titleEl.innerHTML = `Join <span id="waitlist-count">${getWaitlistCount()}</span>+ teams on the waitlist`;
+    titleEl.textContent = 'Want to find out more?';
     descEl.innerHTML =
-      `We're accepting <strong id="waitlist-slots">${getPilotSlots()}</strong> more design partners for Q3. Running observability on your own infra? Building RAG pipelines? Let's talk.`;
+      `Join the waitlist. We're accepting <strong id="waitlist-slots">${getPilotSlots()}</strong> more design partners for Q3.`;
   }
   submitEl.textContent = currentWaitlistIntent.submitLabel;
 }

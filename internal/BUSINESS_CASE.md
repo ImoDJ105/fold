@@ -1,5 +1,7 @@
 # Fold — Business case (refined Jun 27)
 
+> **INTERNAL — founders only (Imogen + Siyang).** Not on the public site or for external sharing.
+
 **YC apply:** Winter 2027 (~Sep–Oct 2026)  
 **Monday:** Private beta + **seeking real design partners**
 
@@ -162,7 +164,9 @@ Don’t claim a universal multiplier. Say: *“Every dollar we take out of passi
 
 ## Value translation (detail)
 
-Founder-facing math and jargon decoder: **`docs/VALUE_TRANSLATION.md`**
+Call cheat sheet (ok to use on calls; lives in public repo): **`docs/VALUE_TRANSLATION.md`**
+
+Storage bill **slope** vs AI usage growth (charts + tables for calls/deck): **`internal/STORAGE_COGS_SLOPE.md`**
 
 ---
 

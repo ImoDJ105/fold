@@ -1,7 +1,7 @@
 # Startup School Paris — Monday 29 June · Station F
 
 **Goal:** 5–8 real conversations · design partner leads · relationships for W27 (apply Sep–Oct)  
-**Not the goal:** Close YC referral on the night · demo product · hand out decks
+**Not the goal:** Close YC referral on the night · deep product demo · hand out decks · pitch seed startups
 
 ---
 
@@ -20,27 +20,49 @@
 
 **Phone setup tonight:**
 - Bookmark: https://fold-sooty.vercel.app/
+- Bookmark: https://fold-sooty.vercel.app/#calculator (open this if they're engaged)
 - LinkedIn app → your QR code ready
-- This doc saved offline / screenshot key pages
+- Screenshot this doc's **30s pitch** + **design partner ask** (offline backup)
+
+**Before you leave Monday — check the site:**
+- Hero stats must be **honest** (`site-config.js`). If you can't back a number up in conversation, don't show it.
+- Safe to say aloud: **private beta**, **2 Q3 design partner slots**, **3×–5× typical** (design session finds real ratio), **API + GC shipping July**.
 
 ---
 
 ## Your story (memorize)
 
-### 30 seconds
-> I'm Imogen — building **Fold**, a dedup API for AI object storage. Teams pile embeddings, RAG data, and observability traces on S3 and bills are eating margin. Enterprise dedup exists for data centers; startups get gzip. We compress and deduplicate losslessly before upload — one API call, keep your bucket. My co-founder **Siyang** led dedup for **FlashArray** at Pure Storage; he's shipping our API in July. We're in **private beta** looking for design partners. **fold-sooty.vercel.app**
+### 30 seconds — default
+> I'm Imogen — building **Fold**. AI companies at Series A and B pile logs, datasets, and training exports on S3 — and the bill **grows with the product**. That shows up as **COGS** and a messy story at the next fundraise. Fold is a dedup layer on **your existing bucket**: we profile your data, design how new stuff lands efficiently, and clean what's already stored — lossless. My co-founder **Siyang** built dedup at **Pure Storage**. Private beta, looking for design partners. **fold-sooty.vercel.app**
 
-### 2 minutes (if they're engaged)
-Add: Silicon Valley origin story · you're PM at Ledger (API integrations) · ICP = seed–Series A teams that **retain** AI data on own S3 · applying **YC Winter** once we have pilot data · not asking for funding tonight — looking for teams with S3 pain or intros
+### 30 seconds — if they're an operator / YC GP
+> We're not selling cheaper S3 — we help **Series A and B AI teams** look **capital-efficient** and **data-mature** before diligence. Same retention, smaller footprint, money back for the team or margin. Private beta — fold-sooty.vercel.app
+
+### 2 minutes (only if they're leaning in)
+Add in this order — stop when they interrupt:
+1. **Slope:** "Storage often tracks usage quarter over quarter — success makes COGS worse unless you design the pathway."
+2. **You:** PM at Ledger (API integrations) · Silicon Valley · applying **YC Winter** once pilots have real numbers.
+3. **ICP:** **Late Series A → Series B**, **100 TB+** on own S3 — not seed (too early).
+4. **Ask:** Not funding tonight — **design partners or intros** to teams with growing S3 pain.
 
 ### Design partner ask (when relevant)
-> We're taking **2 more design partners** for Q3 — RAG, observability, or ML checkpoints on your own S3. Free pilot, we run compression on your workload shape and show you the ratio. Interested?
+> We're taking **2 more design partners** for Q3 — teams with **real TB-scale** logs, datasets, or training exports on their own S3. We run a **free design session** on your bucket (~2 days): map the data, tune ingest, show your real ratio. Interested?
 
-### If they ask "is it live?"
-> Landing page and demo are live; production dedup runs server-side in pilots. Engine goes live July.
+### Phone demo (60 seconds — happy hour only)
+Only if they said "show me" or have clear S3 pain:
+1. **#demo** — flip through agent logs / service logs / training export (one tap each).
+2. **#calculator** — "If your S3 bill is ~$8k/mo…" drag compression to **5×**, point at **four cards**: save · store more · put back in team · margins.
+3. Close: "Upload on the site is a conservative estimate — real number comes from the design session on your bucket."
 
-### If they ask "vs gzip / Archil / Granica?"
-> gzip doesn't understand AI data shapes. Archil makes S3 **fast**; we make it **smaller**. Granica is enterprise/VPC — we're an API for startups already on S3.
+### Objections
+
+| They say | You say |
+|----------|---------|
+| **Is it live?** | Landing page + demo live. Production dedup in pilots; full API + GC **July**. |
+| **vs gzip?** | gzip per file. We dedup **across** files — same JSON keys, duplicate checkpoints, overlapping logs. |
+| **vs Archil / Granica?** | Archil = faster S3. Granica = enterprise/VPC. We're an **API on the bucket you already have**. |
+| **What's your compression?** | **3× conservative, ~5× typical, up to ~9×** on repetitive AI workloads — we find yours in the design session. Don't quote 8× unless it's real pilot data. |
+| **Who's the buyer?** | **CEO + CTO** heading into Series B — COGS story, not FinOps. |
 
 ---
 
@@ -50,8 +72,8 @@ Add: Silicon Valley origin story · you're PM at Ledger (API integrations) · IC
 
 | Person | Why | Your angle |
 |--------|-----|------------|
-| **James Hawkins** (PostHog) | Observability traces on own infra = core ICP | "Teams self-hosting trace storage — storage cost?" |
-| **Paul Copplestone** (Supabase) | Dev-tools GTM; seed→scale | "How did you pick first developers to obsess over?" |
+| **James Hawkins** (PostHog) | Self-hosted observability = storage pain at scale | "Teams retaining full trace history on own infra — does storage COGS show up in the board deck?" |
+| **Paul Copplestone** (Supabase) | Dev-tools GTM; seed→scale | "How did you pick the first developers to obsess over — horizontal vs one painful wedge?" |
 | **Tom Blomfield** (YC GP) | AI startups talk + Q&A | One sharp **question** (see below) |
 | **Nicolas Dessaigne** (YC GP, Algolia) | Paris, APIs, infra | Brief intro after Q&A if natural |
 | **Mathilde Collin** (YC GP, Front) | EU founder, B2B SaaS | Operator advice on EU→US if moment fits |
@@ -60,25 +82,23 @@ Add: Silicon Valley origin story · you're PM at Ledger (API integrations) · IC
 
 | Person | Why |
 |--------|-----|
-| **Stanislas Polu** (Dust) | AI agents, data growth |
-| **Eric Landau** (Encord) | ML training data, storage at scale |
+| **Stanislas Polu** (Dust) | AI agents → inference logs growing fast |
+| **Eric Landau** (Encord) | ML training data at scale |
 | **Kyle Galbraith** (Depot) | Infra/devtools buyers |
 | **Paul Sinaï** (Blaxel) | Infra for AI |
 | **Benjamin Netter** (Riot) | If relevant to your network |
 
 ### Tier 3 — Learn / light touch
 
-Olivier Pomel (Datadog) — huge crowd, hard 1:1; **listen to talk**, use insights in pitch  
-Photoroom, Finary, Bitstack, Argil, Oneleet — connect on LinkedIn if conversation flows
+Olivier Pomel (Datadog) — listen to talk, don't chase 1:1  
+Photoroom, Finary, Bitstack, Argil, Oneleet — LinkedIn if conversation flows
 
 ### YC Partners block (6:00–6:30 Q&A)
-**Prepare ONE question** for the room (raises your visibility):
+**Prepare ONE question** (pick one, memorize):
 
-> "For B2B infra founders selling to AI startups on S3 — would you optimize for one painful workload first (e.g. observability traces) or horizontal compression across all AI data?"
+> "For AI startups at Series A/B — storage COGS grows with usage. Would you rather see founders **optimize that data plane early**, or is it a 'wait until Series B' problem?"
 
-Or for Tom's AI talk:
-
-> "When you look at AI startups burning cash on cloud storage, what traction bar do you want to see before the team is 'ready' for YC?"
+> "When you diligence AI companies with **100TB+ on S3**, what signals **operational maturity** vs **technical debt** on the data stack?"
 
 ---
 
@@ -86,16 +106,16 @@ Or for Tom's AI talk:
 
 | Time | Do this |
 |------|---------|
-| **11:45–12:30** | Check-in, lunch, **scout room layout**, sit mid-audience (easy aisle exit for breaks) |
-| **12:30–1:20** | Light networking at tables — 1–2 intros max, don't burn energy |
-| **1:30–3:00** | **Listen** — Lebrun, **Pomel**, **Hawkins**. Note 1 quote from Hawkins talk for later DM |
-| **3:00–3:20** | **Break #1** — bathroom, LinkedIn ready, target 1 conversation |
-| **3:20–5:00** | Lightning tracks — optional; **don't chase every room** |
-| **5:00–5:30** | **Copplestone** — Supabase; priority if you can approach after |
-| **5:30–6:00** | **Tom Blomfield** — take notes; this informs your YC story |
-| **6:00–6:30** | **YC Q&A** — ask your one question OR approach partner after |
+| **11:45–12:30** | Check-in, lunch, scout room, sit mid-audience (aisle access) |
+| **12:30–1:20** | Light networking — **1–2 intros max**, save energy |
+| **1:30–3:00** | **Listen** — Lebrun, **Pomel**, **Hawkins**. Note 1 Hawkins quote for follow-up DM |
+| **3:00–3:20** | Break — bathroom, LinkedIn ready, **1 conversation** if natural |
+| **3:20–5:00** | Lightning tracks — optional; don't chase every room |
+| **5:00–5:30** | **Copplestone** — priority if you can approach after |
+| **5:30–6:00** | **Tom Blomfield** — notes for YC story |
+| **6:00–6:30** | **YC Q&A** — ask your one question OR brief partner intro after |
 | **6:30–8:30** | **HAPPY HOUR = main event** — 3–5 quality convos, **LinkedIn before they leave** |
-| **Night** | Send follow-ups while fresh (templates below) |
+| **Night** | Follow-ups while fresh (template below) |
 
 **Rule:** Quality > quantity. **5 great conversations** beat 30 elevator pitches.
 
@@ -103,58 +123,61 @@ Or for Tom's AI talk:
 
 ## Conversation flow (happy hour)
 
-1. **Opener** (situation, not pitch): "What brought you to Startup School?" / "Are you building or exploring?"
-2. **Listen** 30 seconds
-3. **Fold** 30 seconds only if relevant (infra, AI, storage, devtools)
-4. **Ask**: "Do you know teams drowning in S3 costs for traces or embeddings?"
-5. **Close**: "I'd love to stay in touch — can I connect on LinkedIn?"
+1. **Opener** (situation, not pitch): "What brought you to Startup School?" / "What are you building?"
+2. **Listen** 30–60 seconds
+3. **Fold** 30 seconds **only if** infra, AI, storage, or devtools
+4. **Qualify:** "Do you know **Series A or B teams** where S3 is **growing every quarter** with logs or training data?"
+5. **Show phone** only if qualified + curious
+6. **Close:** LinkedIn + optional design partner ask
 
 **Do NOT:** Ask "will you refer me to YC?" on first meeting  
-**DO:** "We're applying to YC this fall once our pilots are live — would value staying in touch."
+**DO:** "We're applying to YC this fall once pilots have real metrics — would love to stay in touch."
 
 ---
 
-## Tuesday follow-up (send to everyone you met)
+## Tuesday follow-up
 
 ```
 Great meeting you at Startup School Paris yesterday.
 
-I'm building Fold — dedup API for AI object storage (embeddings, traces, RAG on S3). Private beta; co-founder led FlashArray dedup at Pure Storage.
+I'm building Fold — we help Series A/B AI teams bend their S3 COGS curve (same bucket, lossless dedup + design session on your data). Private beta; co-founder led dedup at Pure Storage.
 
 [One personal line from your conversation]
 
-Would love to stay in touch — we're looking for design partners with real S3 storage pain.
+Looking for design partners with TB-scale storage pain — or intros welcome.
 
 https://fold-sooty.vercel.app/
 ```
 
 ---
 
-## Weekend prep checklist
+## Prep checklist
 
-### Friday (2–3h)
-- [ ] Read this doc; rehearse 30s pitch **10× aloud**
+### Tonight (Fri)
+- [ ] Rehearse **30s pitch 10× aloud** (record once, listen back)
 - [ ] Pick **top 3 people** you most want to meet
-- [ ] Write your **one Q&A question**
+- [ ] Pick **one YC Q&A question**
+- [ ] Verify **site metrics** are honest — update `site-config.js` if needed
 - [ ] Outfit: pockets for phone + pen, **no big bag**
 
 ### Saturday
-- [ ] 30 min: PostHog + Supabase — what they do, one line each (sound informed)
-- [ ] 30 min: Record yourself — 30s pitch
-- [ ] Draft 2 custom openers for Hawkins + Copplestone
+- [ ] 30 min: PostHog + Supabase — one informed line each
+- [ ] Draft **custom opener** for Hawkins + Copplestone
+- [ ] Sync with Siyang: who owns technical depth if someone asks GC/ingest details
 
 ### Sunday
-- [ ] Rehearse objections (no MVP yet, vs gzip, why you)
-- [ ] Charge phone, test LinkedIn QR
-- [ ] Early night — Monday is a long day (12:00–20:30)
+- [ ] Rehearse objections table above
+- [ ] Charge phone, test LinkedIn QR + calculator bookmark
+- [ ] Early night — long day Monday (12:00–20:30)
 
 ---
 
 ## Mindset
 
-- You're not selling tonight — you're **learning + planting seeds**
-- CEO without CTO in room is fine — **own the problem and GTM**, defer engine depth to Siyang
-- W27 apply = **fall**; Monday = **pipeline + credibility**
-- Everyone else is also nervous — **be curious, not performative**
+- You're **planting seeds**, not closing deals
+- CEO without CTO in room is fine — **own problem + GTM**, defer engine to Siyang
+- **No deck, no laptop** — phone + curiosity
+- W27 = **Sep–Oct**; Monday = **pipeline + credibility**
+- Honest traction only — "private beta, seeking design partners" beats inflated stats
 
 Good luck.

@@ -1,5 +1,7 @@
 # Siyang sync — product model (from Imogen + sheet, Jun 2026)
 
+> **INTERNAL — founders only (Imogen + Siyang).** Not on the public site or for external sharing.
+
 Source: Google Sheet + CTO discussion  
 Sheet: `gid=1182872894`
 
@@ -97,6 +99,16 @@ App  →  Fold API (CRUD + optional GC)  →  Customer’s S3
          ↑ fold on ingest + refold existing
          App always sees RAW size on GET; S3 stores SMALLER
 ```
+
+---
+
+## Related internal docs
+
+| Doc | Use |
+|-----|-----|
+| **`internal/STORAGE_COGS_SLOPE.md`** | Charts: bill vs usage growth, sprawl, design session → bent COGS curve |
+| **`internal/BUSINESS_CASE.md`** | ICP, investor pitch, pilot offer |
+| **`docs/VALUE_TRANSLATION.md`** | Savings → runway, GM, reinvestment (call cheat sheet) |
 
 ---
 

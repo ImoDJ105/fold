@@ -138,7 +138,7 @@ For each **Tier 1** speaker, one card:
 | `WEEKEND_PREP.md` | This plan |
 | `MONDAY_PLAYBOOK.md` | Day-of execution |
 | `APPLICATION.md` | YC copy (W27 later) |
-| `BUSINESS_CASE.md` | Created after CTO notes — Sat |
+| `internal/BUSINESS_CASE.md` | Created after CTO notes — Sat (founders only) |
 | `SPEAKER_CARDS.md` | Created Sunday |
 
 ---
