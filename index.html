@@ -38,6 +38,7 @@
         <a href="#customer-results">Customer results</a>
         <a href="#product">Product</a>
         <a href="#demo">Demo</a>
+        <a href="#calculator">Calculator</a>
         <a href="#pricing">Pricing</a>
         <a href="#founders">Team</a>
       </nav>
@@ -47,6 +48,7 @@
       <a href="#customer-results">Customer results</a>
       <a href="#product">Product</a>
       <a href="#demo">Demo</a>
+      <a href="#calculator">Calculator</a>
       <a href="#pricing">Pricing</a>
       <a href="#founders">Team</a>
       <a href="#waitlist" class="btn btn-primary btn-block">Request access</a>
@@ -63,8 +65,8 @@
         storage bills by up to 80% on embeddings, RAG corpora, and trace archives.
       </p>
       <div class="hero-cta">
-        <a href="#demo" class="btn btn-primary">Try the live demo</a>
-        <a href="#customer-results" class="btn btn-ghost">See customer results</a>
+        <a href="#demo" class="btn btn-primary">See compression examples</a>
+        <a href="#calculator" class="btn btn-ghost">Savings calculator</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
@@ -302,44 +304,45 @@
     </section>
 
     <section id="demo" class="section">
-      <div class="section-label">Live demo</div>
-      <h2>See compression in action</h2>
-      <p class="section-desc">This preview uses browser gzip on sample AI workloads. Production pilots run Fold's server-side dedup pipeline — that's where the 8.2× average comes from.</p>
+      <div class="section-label">Compression examples</div>
+      <h2>How Fold compresses real workloads</h2>
+      <p class="section-desc">Example workloads show typical design-session results. Upload a sample file for a conservative ratio on <em>that file</em> — then use the calculator for your full TB-scale S3 bill (<strong>3×–9×</strong>).</p>
 
       <div class="demo-panel">
+        <div class="demo-samples">
+          <span class="demo-samples-label">Example workloads</span>
+          <div class="demo-sample-actions">
+            <button type="button" class="btn btn-ghost btn-sm demo-sample-active" data-sample="agent-logs">Agent logs</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-sample="service-logs">Service logs</button>
+            <button type="button" class="btn btn-ghost btn-sm" data-sample="training-export">Training export</button>
+          </div>
+        </div>
+
         <div class="dropzone" id="dropzone">
           <input type="file" id="file-input" multiple hidden />
           <div class="dropzone-content">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
               <path d="M12 16V4m0 0l-4 4m4-4l4 4M4 17v1a2 2 0 002 2h12a2 2 0 002-2v-1"/>
             </svg>
-            <p><strong>Drop files here</strong> or click to browse</p>
-            <span class="dropzone-hint">JSON, embeddings export, CSV, logs — typical AI workload files</span>
+            <p><strong>Upload a sample</strong> — logs, datasets, or exports</p>
+            <span class="dropzone-hint">Instant estimate on this file · 3×–5× · TB-scale savings in the calculator below</span>
           </div>
         </div>
 
-        <div class="demo-samples">
-          <span class="demo-samples-label">Try sample AI workloads</span>
-          <div class="demo-sample-actions">
-            <button type="button" class="btn btn-ghost btn-sm" data-sample="agent-traces">Agent traces</button>
-            <button type="button" class="btn btn-ghost btn-sm" data-sample="embeddings">Embeddings export</button>
-            <button type="button" class="btn btn-ghost btn-sm" data-sample="observability">Observability logs</button>
-          </div>
-        </div>
-
-        <div class="demo-results hidden" id="demo-results">
+        <div class="demo-results" id="demo-results">
           <div class="results-header">
-            <h3>Compression results</h3>
-            <button class="btn btn-ghost btn-sm" id="clear-btn">Clear</button>
+            <h3 id="demo-results-title">Example results</h3>
+            <button type="button" class="btn btn-ghost btn-sm hidden" id="demo-reset-btn">Back to examples</button>
           </div>
+          <p class="demo-upload-status hidden" id="demo-upload-status" role="status"></p>
           <div class="results-summary" id="results-summary"></div>
           <div class="results-table-wrap">
             <table class="results-table" id="results-table">
               <thead>
                 <tr>
                   <th>File</th>
-                  <th>Original</th>
-                  <th>Compressed</th>
+                  <th>Raw size</th>
+                  <th>With Fold</th>
                   <th>Ratio</th>
                   <th>Saved</th>
                 </tr>
@@ -347,31 +350,134 @@
               <tbody id="results-body"></tbody>
             </table>
           </div>
+          <p class="demo-note" id="demo-note">Typical ratios from design sessions on repetitive logs &amp; datasets. <a href="#calculator">Model your S3 savings →</a></p>
         </div>
       </div>
+    </section>
 
-      <div class="roi-calculator" id="roi-calculator">
-        <h3>Estimate your savings</h3>
-        <p>Based on average <span id="roi-ratio">8.2</span>× compression across pilot workloads</p>
-        <div class="roi-controls">
-          <label for="storage-slider">Data stored on S3 today</label>
-          <input type="range" id="storage-slider" min="5" max="500" value="30" />
-          <span class="roi-value"><span id="storage-tb">30</span> TB</span>
-        </div>
-        <div class="roi-results">
-          <div class="roi-result">
-            <span class="roi-result-label">Current S3 cost</span>
-            <span class="roi-result-value" id="current-cost">$690/mo</span>
+    <section id="calculator" class="section section-alt">
+      <div class="section-inner">
+        <div class="section-label">Savings calculator</div>
+        <h2>What could you save on S3?</h2>
+        <p class="section-desc">Illustrative only — your real ratio comes from a free design session.</p>
+
+        <div class="impact-calc" id="impact-calc">
+          <div class="calc-hero-stat" id="calc-hero-stat">
+            <span class="calc-hero-pct" id="calc-hero-pct">80%</span>
+            <span class="calc-hero-text">less on S3 storage · <strong id="calc-hero-save">—</strong> back every month</span>
           </div>
-          <div class="roi-arrow">→</div>
-          <div class="roi-result highlight">
-            <span class="roi-result-label">With Fold</span>
-            <span class="roi-result-value" id="fold-cost">$383/mo</span>
+
+          <div class="calc-grid">
+            <div class="calc-inputs">
+              <div class="calc-input-mode" role="tablist" aria-label="How do you want to enter your data?">
+                <button type="button" class="calc-mode-btn active" data-mode="bill" role="tab" aria-selected="true">I know my S3 bill</button>
+                <button type="button" class="calc-mode-btn" data-mode="size" role="tab" aria-selected="false">I know my data size</button>
+              </div>
+
+              <div class="calc-control" id="calc-bill-control">
+                <div class="calc-control-head">
+                  <label for="calc-s3bill">What you pay AWS for S3 today</label>
+                  <span class="calc-control-value" id="calc-s3bill-val">$2,300/mo</span>
+                </div>
+                <input type="range" id="calc-s3bill" min="500" max="50000" step="250" value="2300" />
+                <p class="calc-hint" id="calc-bill-hint">≈ 100 TB at ~$23/TB/mo (Standard, us-east-1)</p>
+              </div>
+
+              <div class="calc-control hidden" id="calc-size-control">
+                <div class="calc-control-head">
+                  <label for="calc-storage">Data stored on S3</label>
+                  <div class="calc-unit-toggle" role="group" aria-label="Storage unit">
+                    <button type="button" class="calc-unit active" data-unit="tb">TB</button>
+                    <button type="button" class="calc-unit" data-unit="pb">PB</button>
+                  </div>
+                </div>
+                <input type="range" id="calc-storage" min="10" max="2000" step="10" value="100" />
+                <p class="calc-control-value calc-size-readout"><span id="calc-storage-val">100</span> <span id="calc-storage-unit">TB</span> · ≈ <span id="calc-size-bill">$2,300</span>/mo on S3</p>
+              </div>
+
+              <div class="calc-control">
+                <div class="calc-control-head">
+                  <label for="calc-ratio">Expected compression</label>
+                  <span class="calc-control-value"><span id="calc-ratio-val">3</span>× smaller</span>
+                </div>
+                <input type="range" id="calc-ratio" min="3" max="9" step="0.5" value="3" />
+                <p class="calc-hint">Conservative <strong>3×</strong> · Typical <strong>5×</strong> · Strong <strong>9×</strong> — from your design session</p>
+              </div>
+            </div>
+
+            <div class="calc-viz">
+              <h3 class="calc-viz-title">Your monthly S3 bill</h3>
+              <div class="calc-bars" id="calc-s3-bars">
+                <div class="calc-bar-row">
+                  <span class="calc-bar-label">Today</span>
+                  <div class="calc-bar-track"><div class="calc-bar-fill calc-bar-before" id="bar-before"></div></div>
+                  <span class="calc-bar-amount" id="bar-before-amt">—</span>
+                </div>
+                <div class="calc-bar-row">
+                  <span class="calc-bar-label">With Fold</span>
+                  <div class="calc-bar-track"><div class="calc-bar-fill calc-bar-after" id="bar-after"></div></div>
+                  <span class="calc-bar-amount" id="bar-after-amt">—</span>
+                </div>
+              </div>
+              <p class="calc-bar-save-line" id="calc-bar-save-line">You keep <strong>80%</strong> of your S3 spend · <strong>$1,840/mo</strong> saved</p>
+
+              <h3 class="calc-viz-title">Same budget — store more</h3>
+              <p class="calc-viz-desc">What your S3 budget holds today vs how much data that same budget could keep with Fold — logs, datasets, customer files, model exports.</p>
+              <div class="calc-capacity-viz" id="calc-capacity-viz">
+                <div class="calc-capacity-row">
+                  <span class="calc-capacity-label">Today</span>
+                  <div class="calc-capacity-track calc-capacity-track-sm">
+                    <div class="calc-capacity-core calc-capacity-today"></div>
+                  </div>
+                  <span class="calc-capacity-meta" id="cap-today">1× data</span>
+                </div>
+                <div class="calc-capacity-row">
+                  <span class="calc-capacity-label">With Fold</span>
+                  <div class="calc-capacity-track">
+                    <div class="calc-capacity-core" id="cap-core"></div>
+                    <div class="calc-capacity-bonus" id="cap-bonus">
+                      <span class="calc-capacity-bonus-label" id="cap-bonus-label">+4× more</span>
+                    </div>
+                  </div>
+                  <span class="calc-capacity-meta calc-capacity-meta-highlight" id="cap-with">5× data</span>
+                </div>
+              </div>
+              <p class="calc-capacity-foot" id="calc-capacity-foot">Keep <strong>5× more</strong> agent traces &amp; RAG files — without asking AWS for more budget.</p>
+            </div>
           </div>
-          <div class="roi-result savings">
-            <span class="roi-result-label">You save</span>
-            <span class="roi-result-value" id="savings-cost">+$307/mo</span>
+
+          <div class="calc-outcomes">
+            <article class="calc-outcome">
+              <div class="calc-outcome-headline-wrap">
+                <h4 class="calc-outcome-headline">You save</h4>
+              </div>
+              <span class="calc-outcome-value" id="out-monthly">—</span>
+              <span class="calc-outcome-sub" id="out-annual">—</span>
+            </article>
+            <article class="calc-outcome">
+              <div class="calc-outcome-headline-wrap">
+                <h4 class="calc-outcome-headline">Store more</h4>
+              </div>
+              <span class="calc-outcome-value" id="out-retention">—</span>
+              <span class="calc-outcome-sub" id="out-retention-sub">same S3 bill · more room for the data you keep</span>
+            </article>
+            <article class="calc-outcome">
+              <div class="calc-outcome-headline-wrap">
+                <h4 class="calc-outcome-headline">Put it back in the team</h4>
+              </div>
+              <span class="calc-outcome-value" id="out-reinvest">—</span>
+              <span class="calc-outcome-sub">redirect savings into hiring — not AWS rent</span>
+            </article>
+            <article class="calc-outcome">
+              <div class="calc-outcome-headline-wrap">
+                <h4 class="calc-outcome-headline">Better margins</h4>
+              </div>
+              <span class="calc-outcome-value" id="out-investor">—</span>
+              <span class="calc-outcome-sub" id="out-investor-sub">cleaner, leaner cost structure — same revenue, less on the books</span>
+            </article>
           </div>
+
+          <p class="calc-disclaimer">Estimates use ~$23/TB/mo S3 Standard (us-east-1). Storage only — excludes egress &amp; Fold fees. Real ratio from a free design session on your data.</p>
         </div>
       </div>
     </section>
